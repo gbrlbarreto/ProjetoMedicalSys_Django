@@ -6,20 +6,51 @@
 
 {% block main %}
 
-    <h2>Login</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form|bootstrap }}
-        <br>
-        <button type="submit" class="btn btn-info">Login</button>
-    </form>
+<style>
+    body {
+        background-image: url('../media/photos/hospital.jpg');
+        background-attachment: fixed;
+        background-size: cover;
+    }
+</style>
+
+<div style="padding-left:40px;" >
+
+<div style="padding-top:170px">
+    <div class="card mb-3 " style="max-width: 540px;">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="../media/photos/medical_logo.png" class="img-fluid rounded-start p-3" alt="logo" width="180"
+                    height="180">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <div style="padding-left:85px;">
+                    <h5 class="card-title">Login MedicalSYS</h5>
+                    </div>
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form|bootstrap }}
+                        <br>
+                        <div style="padding-left:125px">
+                            <button type="submit" class="btn btn-primary">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
 
 {% endblock %}
 
 {% block footer %}
-    <footer class="footer">
-        <div class="container">
-            <span class="text-muted">Desenvolvimento web com Django</span>
-        </div>
-    </footer>
+<footer class="footer">
+    <div class="text-center">
+        <span class="text-muted">Desenvolvimento web com Django</span>
+    </div>
+
+</footer>
 {% endblock %}

@@ -4,36 +4,60 @@
 
 {% block main %}
 
-    <div class="row">
-        <div class="col">
+<style>
+    body {
+        background-image: url('media/photos/hospital.jpg');
+        background-attachment: fixed;
+        background-size: cover;
+    }
+</style>
+
+<div>
+    {% if user.is_authenticated %}
+    <p>Olá {{ user.username }}</p>
+
+    <h3>Escolha qual opção deseja:</h3>
+    <a href="{% url 'person_list' %}" class="btn btn-primary">Pacientes</a>
+    <a href="{% url 'desenvolvimento' %}" class="btn btn-secondary">Agendamentos</a>
+
+    <a href="{% url 'logout' %}" class="badge text-bg-dark">Sair</a>
+    {% else %}
+
+    <div style="padding:15px">
         
-        </div>
-
-        <div class="col-6">
-            <h1>Seja bem vindo</h1>
-        </div>
-
-        <div class="col-6">
-            {% if user.is_authenticated %}
-                <p>Olá {{ user.username }}</p>
-
-                <h3>Escolha qual opção deseja:</h3>
-                <a href="{% url 'person_list' %}" class="btn btn-primary">Pacientes</a> 
-                <a href="{% url 'desenvolvimento' %}" class="btn btn-secondary">Agendamentos</a> 
-
-                <a href="{% url 'logout' %}" class="badge text-bg-dark" >Sair</a>
-            {% else %}
-                <a href="{% url 'login' %}" class="btn btn-info">Entrar</a>
-            {% endif %}
+        <div class="card mb-3 " style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="media/photos/medical_logo.png" class="img-fluid rounded-start p-3" alt="logo" width="180"
+                        height="180">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <div style="padding-left:85px;">
+                            <h5 class="card-title">MedicalSYS</h5>
+                        </div>
+                        <p class="card-text">Esse sistema tem por objetivo realizar cadastro de pacientes e agendamentos de exames médicos.</p>
+                        <div style="padding-left:85px;">
+                            <a href="{% url 'login' %}" class="btn btn-primary ">Entrar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
+    {% endif %}
+
+</div>
+</div>
 
 {% endblock %}
 
 {% block footer %}
-    <footer class="footer">
-        <div class="container">
-            <span class="text-muted">Desenvolvimento web com Django</span>
-        </div>
-    </footer>
+<footer class="footer">
+    <div class="text-center">
+        <span class="text-muted">Desenvolvimento web com Django</span>
+    </div>
+
+</footer>
 {% endblock %}
