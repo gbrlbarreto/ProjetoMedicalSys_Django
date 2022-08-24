@@ -3,6 +3,15 @@
 {% block title %} Seja bem vindo {% endblock %}
 
 {% block main %}
+
+<style>
+    body {
+        background-image: url('../../media/photos/hospital_2.jpg');
+        background-attachment: fixed;
+        background-size: cover;
+    }
+</style>
+
     <div class="row">
         <div class="col">
 
@@ -19,17 +28,22 @@
         </div>
     </div>
 
+    <br>
+    
+    <a href="{% url 'person_new' %}" class="btn btn-primary btn-sm">Novo paciente</a> 
+    <a href="{% url 'home' %}" class="btn btn-secondary btn-sm">Voltar</a> 
 
+    <br><br>
 
     <ul class="list-group">
         {% for person in persons %}
 
             <li class="list-group-item"> 
                 {{ person.nome }} <a href="{% url 'persons_update' person.id%}" title="Editar">
-                    <i class="bi bi-pencil-square"></i>
+                    <i class="bi-pencil-square"></i>
                 </a>
                 <a href="{% url 'persons_delete' person.id%}" class="trash-item" title="Excluir">
-                    <i class="bi bi-trash-fill"></i>
+                    <i class="bi-trash-fill"></i>
                 </a>
             </li>
 
@@ -38,14 +52,11 @@
 
     <br>
 
-    <a href="{% url 'person_new' %}" class="btn btn-primary">Novo paciente</a> 
-    <a href="{% url 'home' %}" class="btn btn-secondary">Voltar</a> 
-
 {% endblock %}
 
 {% block footer %}
     <footer class="footer">
-        <div class="container">
+        <div class="text-center">
             <span class="text-muted">Desenvolvimento web com Django</span>
         </div>
     </footer>

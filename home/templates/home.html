@@ -14,13 +14,21 @@
 
 <div>
     {% if user.is_authenticated %}
-    <p>Olá {{ user.username }}</p>
-
-    <h3>Escolha qual opção deseja:</h3>
-    <a href="{% url 'person_list' %}" class="btn btn-primary">Pacientes</a>
-    <a href="{% url 'desenvolvimento' %}" class="btn btn-secondary">Agendamentos</a>
-
+    Olá {{ user.username }}
     <a href="{% url 'logout' %}" class="badge text-bg-dark">Sair</a>
+    <p></p>
+
+    <div class="card text-center">
+        <div class="card-header">
+            MedicalSYS
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Escolha qual funcionalidade deseja acessar: </h5>
+            <br>
+            <a href="{% url 'person_list' %}" class="btn btn-primary">Pacientes</a>
+            <a href="{% url 'desenvolvimento' %}" class="btn btn-secondary">Agendamentos</a>
+        </div>
+    </div>
     {% else %}
 
     <div style="padding:15px">
@@ -35,7 +43,8 @@
                         <div style="padding-left:85px;">
                             <h5 class="card-title">MedicalSYS</h5>
                         </div>
-                        <p class="card-text">Esse sistema tem por objetivo realizar cadastro de pacientes e agendamentos de exames médicos.</p>
+                        <p class="card-text">Esse sistema tem por objetivo realizar cadastro de pacientes e agendamentos
+                            de exames médicos.</p>
                         <div style="padding-left:85px;">
                             <a href="{% url 'login' %}" class="btn btn-primary ">Entrar</a>
                         </div>
