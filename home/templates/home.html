@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %} Seja bem vindo {% endblock %}
+{% block title %} Pagina Inicial {% endblock %}
 
 {% block main %}
 
@@ -12,6 +12,8 @@
     }
 </style>
 
+<p>
+    
 <div>
     {% if user.is_authenticated %}
     Olá {{ user.username }}
