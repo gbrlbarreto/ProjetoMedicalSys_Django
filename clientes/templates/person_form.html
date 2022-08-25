@@ -4,12 +4,13 @@
 
 {% load static %}
 
-{% block title %} Seja bem vindo {% endblock %}
+{% block title %} Cadastro de Pacientes {% endblock %}
 
 {% block main %}
-
-    <h3>Cadastro de pacientes</h3>
-
+    <div style="padding-top:10px;">
+        <h3>Cadastro de pacientes</h3>
+    </div>    
+    
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}  <!-- Proteção para não ser possível manipular formularios -->
         {{ form|bootstrap }}   <!-- form é o formulario declarado em person_new -->
