@@ -22,13 +22,13 @@
 
     <div class="card text-center">
         <div class="card-header">
-            MedicalSYS
+            MedicalSys
         </div>
         <div class="card-body">
             <h5 class="card-title">Escolha qual funcionalidade deseja acessar: </h5>
             <br>
-            <a href="{% url 'person_list' %}" class="btn btn-primary">Pacientes</a>
-            <a href="{% url 'desenvolvimento' %}" class="btn btn-secondary">Agendamentos</a>
+            <a href="{% url 'person_list' %}" class="btn btn-outline-primary">Pacientes</a>
+            <a href="{% url 'agendamentos_list' %}" class="btn btn-outline-secondary">Agendamentos</a>
         </div>
     </div>
     {% else %}
@@ -43,7 +43,7 @@
                 <div class="col-md-8">
                     <div class="card-body">
                         <div style="padding-left:85px;">
-                            <h5 class="card-title">MedicalSYS</h5>
+                            <h5 class="card-title">MedicalSys</h5>
                         </div>
                         <p class="card-text">Esse sistema tem por objetivo realizar cadastro de pacientes e agendamentos
                             de exames médicos.</p>

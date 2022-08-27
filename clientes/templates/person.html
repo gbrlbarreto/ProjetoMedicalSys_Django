@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %} Lista de pacientes {% endblock %}
+{% block title %} Lista de Pacientes {% endblock %}
 
 {% block main %}
 
@@ -41,10 +41,10 @@
         {% for person in persons %}
 
             <li class="list-group-item"> 
-                {{ person.nome }} <a href="{% url 'persons_update' person.id%}" title="Editar">
+                {{ person.nome }} <a href="{% url 'persons_update' person.id%}" title="Editar paciente">
                     <i class="bi-pencil-square"></i>
                 </a>
-                <a href="{% url 'persons_delete' person.id%}" class="trash-item" title="Excluir">
+                <a href="{% url 'persons_delete' person.id%}" class="trash-item" title="Excluir paciente">
                     <i class="bi-trash-fill"></i>
                 </a>
             </li>
