@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %} Exclusão de paciente {% endblock %}
+
+{% block main %}
+   <!-- 1ª opção
+    <h1>Tem certeza que deseja deletar {{ agendamento.paciente.nome }}?</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Deletar</button>
+        <a href="{% url 'agendamentos_list' %}" class="btn btn-secondary">Voltar</a> 
+    </form>
+    -->
+
+    <div style="padding:15px">
+        <div class="card mb-3 " style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-15">
+                    <div class="card-body">
+                        <div style="padding-left:135px;">
+                            <h5 class="card-title">Exclusão de Agendamento</h5>
+                        </div>
+                        <p class="card-text">Tem certeza que deseja deletar o agendamento do paciente {{ agendamento.paciente.nome }}?</p>
+                        <div style="padding-left:175px;">
+                            <form method="POST" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger">Deletar</button>
+                                <a href="{% url 'agendamentos_list' %}" class="btn btn-secondary">Voltar</a> 
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+

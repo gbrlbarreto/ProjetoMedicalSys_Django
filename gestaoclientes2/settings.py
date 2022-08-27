@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'bootstrapform',
     'clientes', #registrar aplicação em migrations
     'home', #registrar aplicação em migrations
+    'agendamentos', #registrar aplicação em migrations
 ]
 
 MIDDLEWARE = [
