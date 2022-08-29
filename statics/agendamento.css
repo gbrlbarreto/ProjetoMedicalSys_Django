@@ -1,14 +1,14 @@
 
 /*TÍTULO DA ÁREA DE CADASTRO DE AGENDAMENTOS   */
 
-h1.titulo {
-    color: Black;
+h3.titulo {
     text-align: center;
+    color: white;
     font-size: 35px;
 }
 
 h3.titulo_lista_pacientes {
-    color: Black;
+    color: black;
     text-align: center;
 }
 
@@ -26,5 +26,5 @@ a.button_sair {
 
 a.btn_novo_agendamento {
     color: black;
-    
+
 }

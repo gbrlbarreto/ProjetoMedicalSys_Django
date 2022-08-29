@@ -7,10 +7,26 @@
 {% block title %} Cadastro de Pacientes {% endblock %}
 
 {% block main %}
-    <div style="padding-top:10px;">
-        <h3>Cadastro de pacientes</h3>
-    </div>    
-    
+
+<style>
+    body {
+        background-image: url('../../media/photos/prancheta.webp');
+        background-attachment: fixed;
+        background-size: cover;
+    }
+</style>
+
+
+<br>
+    <div rel="stylesheet" href="form_clientes.css" type="text/css">
+
+        <h3 class="titulo_cadastro_pacientes">Cadastro de Pacientes</h3>
+
+    </div>
+
+<br>
+
+
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}  <!-- Proteção para não ser possível manipular formularios -->
         {{ form|bootstrap }}   <!-- form é o formulario declarado em person_new -->
