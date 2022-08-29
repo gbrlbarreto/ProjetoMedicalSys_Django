@@ -8,9 +8,14 @@
 
 {% block main %}
 
-    <div style="padding-top:10px;">
-        <h3>Cadastro de agendamentos</h3>
+<br>
+    <div rel="stylesheet" href="agendamento.css" type="text/css">
+
+        <h1 class="titulo">Cadastro de Agendamentos</h1>
+
     </div>    
+
+<br>    
     
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}  <!-- Proteção para não ser possível manipular formularios -->
