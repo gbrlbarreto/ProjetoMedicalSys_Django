@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block title %} Lista de Pacientes {% endblock %}
+
+{% block main %}
+
+<style>
+    body {
+        background-image: url('../../media/photos/hospital_2.jpg');
+        background-attachment: fixed;
+        background-size: cover;
+    }
+</style>
+
+<p>
+
+    <div class="row">
+        <div class="col">
+
+        </div>
+
+        <div class="col-6">
+            <h3 style="font-size:30px;">Lista de Pacientes</h3>
+        </div>
+
+        <div class="col">
+            {% if user.is_authenticated %}
+                <p>Olá {{ user.username }} <a href="{% url 'logout' %}" class="badge text-bg-dark">Sair</a></p>                
+            {% endif %}
+        </div>
+    </div>
+
+    <br>
+    
+    <a href="{% url 'person_new' %}" class="btn btn-primary btn-sm">Novo paciente</a> 
+    <a href="{% url 'home' %}" class="btn btn-secondary btn-sm">Voltar</a> 
+
+    <br><br>
+
+    <ul class="list-group">
+        {% for person in persons %}
+
+            <li class="list-group-item"> 
+                {{ person.nome }} <a href="{% url 'persons_update' person.id%}" title="Editar paciente">
+                    <i class="bi-pencil-square"></i>
+                </a>
+                <a href="{% url 'persons_delete' person.id%}" class="trash-item" title="Excluir paciente">
+                    <i class="bi-trash-fill"></i>
+                </a>
+            </li>
+
+        {% endfor %}
+    </ul>
+
+    <br>
+
+{% endblock %}
+
+{% block footer %}
+    <footer class="footer">
+        <div class="text-center">
+            <span class="text-muted">Desenvolvimento Web com Django</span>
+        </div>
+    </footer>
+{% endblock %}

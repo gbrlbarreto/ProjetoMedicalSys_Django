@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% load bootstrap %}
+
+{% load static %}
+
+{% block title %} Cadastro de Agendamentos {% endblock %}
+
+{% block main %}
+
+<br>
+    <div rel="stylesheet" href="agendamento.css" type="text/css">
+
+        <h1 class="titulo">Cadastro de Agendamentos</h1>
+
+    </div>    
+
+<br>    
+    
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}  <!-- Proteção para não ser possível manipular formularios -->
+        {{ form|bootstrap }}   <!-- form2 é o formulario declarado em person_new -->
+        <br>
+        <a href="{% url 'agendamentos_list' %}" class="btn btn-secondary">Cancelar</a> 
+        <button type="submit" class="btn btn-primary">Salvar</button>
+    </form>
+
+<script src={% static 'jquery-3.6.0.min.js' %}></script> 
+<script src={% static 'jquery.mask.min.js' %}></script> 
+
+<script>
+    $(document).ready(function(){
+        $('#id_data').mask('00/00/0000');
+    })
+</script>
+
+{% endblock %}
+
+

@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block title %} Lista de Agendamentos {% endblock %}
+
+{% block main %}
+
+<style>
+    body {
+        background-image: url('../../media/photos/hospital_4.jpg');
+        background-attachment: fixed;
+        background-size: cover;
+    }
+</style>
+
+<p>
+
+    <div class="row">
+        <div class="col">
+
+        </div>
+
+        <div class="col-6">
+            <h3 style="font-size:28px;">Lista de Agendamentos</h3>
+        </div>
+
+        <div class="col">
+            {% if user.is_authenticated %}
+                <p>Olá {{ user.username }} <a href="{% url 'logout' %}" class="badge text-bg-dark">Sair</a></p>                
+            {% endif %}
+        </div>
+    </div>
+
+    <br>
+    
+    <a href="{% url 'agendamentos_new' %}" class="btn btn-primary btn-sm">Novo agendamento</a> 
+    <a href="{% url 'home' %}" class="btn btn-secondary btn-sm">Voltar</a> 
+
+    <br><br>
+
+    <ul class="list-group">
+        {% for agendamento in agendamentos %}
+            <ul class="list-group list-group-horizontal">
+                <li class="list-group-item">{{ agendamento.paciente.nome }}</li>
+                <li class="list-group-item">{{ agendamento.data }}</li>
+
+                {% if agendamento.status == "A Confirmar" %}
+                    <li class="list-group-item list-group-item-danger">{{ agendamento.status }}</li>
+                {% elif agendamento.status == "Confirmado" %}
+                    <li class="list-group-item list-group-item-success">{{ agendamento.status }}</li>
+                {% elif agendamento.status == "Finalizado" %}
+                    <li class="list-group-item list-group-item-dark">{{ agendamento.status }}</li>
+                {% endif %}
+
+                <li class="list-group-item"><a href="{% url 'agendamentos_update' agendamento.id%}" title="Editar agendamento">
+                    <i class="bi-pencil-square"></i></a></li>
+                <li class="list-group-item"><a href="{% url 'agendamentos_delete' agendamento.id%}" class="trash-item" title="Excluir agendamento">
+                    <i class="bi-trash-fill"></i></a></li>
+              </ul>
+        {% endfor %}
+    </ul>
+
+    <!-- Agendamento 1ª forma
+    <ul class="list-group">
+        {% for agendamento in agendamentos %}
+
+            <li class="list-group-item"> 
+                {{ agendamento.paciente.nome }} | {{ agendamento.data }} | {{ agendamento.status }} <a href="{% url 'agendamentos_update' agendamento.id%}" title="Editar agendamento">
+                    <i class="bi-pencil-square"></i>
+                </a>
+                <a href="{% url 'agendamentos_delete' agendamento.id%}" class="trash-item" title="Excluir agendamento">
+                    <i class="bi-trash-fill"></i>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+    -->
+    <br>
+
+{% endblock %}
+
+{% block footer %}
+    <footer class="footer">
+        <div class="text-center">
+            <span class="text-muted">Desenvolvimento Web com Django</span>
+        </div>
+    </footer>
+{% endblock %}
