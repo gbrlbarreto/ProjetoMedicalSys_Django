@@ -1,6 +1,30 @@
+
+/*TÍTULO DA ÁREA DE CADASTRO DE AGENDAMENTOS   */
+
 h1.titulo {
     color: Black;
     text-align: center;
     font-size: 35px;
 }
 
+h3.titulo_lista_pacientes {
+    color: Black;
+    text-align: center;
+}
+
+p.nome_usuario {
+    color: #0d6efd;
+    text-align: left;
+    font-weight: bold;
+}
+
+a.button_sair {
+    text-align: right;
+    color: black;
+
+}
+
+a.btn_novo_agendamento {
+    color: black;
+    
+}

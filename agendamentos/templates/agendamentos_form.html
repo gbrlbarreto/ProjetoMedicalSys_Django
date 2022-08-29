@@ -18,11 +18,13 @@
 <br>    
     
     <form method="POST" enctype="multipart/form-data">
+
         {% csrf_token %}  <!-- Proteção para não ser possível manipular formularios -->
         {{ form|bootstrap }}   <!-- form2 é o formulario declarado em person_new -->
         <br>
         <a href="{% url 'agendamentos_list' %}" class="btn btn-secondary">Cancelar</a> 
         <button type="submit" class="btn btn-primary">Salvar</button>
+
     </form>
 
 <script src={% static 'jquery-3.6.0.min.js' %}></script> 

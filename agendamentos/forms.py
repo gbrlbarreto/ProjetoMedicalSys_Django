@@ -7,4 +7,5 @@ from .models import Agendamento
 class AgendamentoForm(ModelForm):
     class Meta:
         model = Agendamento
-        fields = ['data', 'descricao', 'status', 'paciente']
+        fields = ['Data', 'Descricao', 'Status', 'Paciente']
+

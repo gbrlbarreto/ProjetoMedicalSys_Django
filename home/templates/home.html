@@ -17,7 +17,7 @@
 <div>
     {% if user.is_authenticated %}
     Olá {{ user.username }}
-    <a href="{% url 'logout' %}" class="badge text-bg-dark">Sair</a>
+    <a href="{% url 'logout' %}" title="Clique aqui para Sair" class="badge text-bg-dark">Sair</a>
     <p></p>
 
     <div class="card text-center">
@@ -26,9 +26,14 @@
         </div>
         <div class="card-body">
             <h5 class="card-title">Escolha qual funcionalidade deseja acessar: </h5>
+
             <br>
-            <a href="{% url 'person_list' %}" class="btn btn-outline-primary">Pacientes</a>
-            <a href="{% url 'agendamentos_list' %}" class="btn btn-outline-secondary">Agendamentos</a>
+
+            <a href="{% url 'person_list' %}" title="Clique aqui para ver a lista de pacientes" 
+            class="btn btn-outline-primary">Pacientes</a>
+
+            <a href="{% url 'agendamentos_list' %}" title="Clique aqui para acessar a lista de agendamentos" 
+            class="btn btn-outline-secondary">Agendamentos</a>
         </div>
     </div>
     {% else %}
