@@ -1,0 +1,16 @@
+.box1 {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-around;
+}
+
+p.nome_usuario {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: black;
+    font-weight: bold;
+}
+
+h3.titulo_lista_pacientes {
+    text-align: center;
+}
