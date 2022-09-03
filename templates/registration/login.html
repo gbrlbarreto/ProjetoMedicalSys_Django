@@ -31,7 +31,10 @@
                     <form method="post">
                         {% csrf_token %}
                         {{ form|bootstrap }}
-                        <br>
+                        <div style="padding-left:205px;">
+                            <a href="{% url 'cadastro' %}" class="btn btn-link">Cadastrar-se</a>
+                        </div>
+                        
                         <div style="padding-left:125px">
                             <button type="submit" class="btn btn-primary">Login</button>
                         </div>
