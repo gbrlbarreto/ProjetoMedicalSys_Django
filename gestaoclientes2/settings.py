@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'clientes', #registrar aplicação em migrations
     'home', #registrar aplicação em migrations
     'agendamentos', #registrar aplicação em migrations
+    'medicos', #registrar aplicação em migrations
 ]
 
 MIDDLEWARE = [
