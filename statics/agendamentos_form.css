@@ -1,0 +1,13 @@
+h3 {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    color: white;
+}
+
+a.btn.btn-secondary {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+}
+

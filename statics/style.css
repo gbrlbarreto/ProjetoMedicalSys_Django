@@ -1,0 +1,17 @@
+.trash-item{
+    float: right;
+}
+
+.text-center{
+    text-align: center;
+}
+.padding-lm{
+    padding: 20px;
+}
+.ajuste-login{
+    padding-top: 40px;
+    padding-left: 50px;
+}
+.padding-icon{
+    padding-left: 40px;
+}

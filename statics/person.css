@@ -1,0 +1,26 @@
+h3 {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+}
+
+p {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+a.btn.btn-primary.btn-sm {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+}
+
+a.btn.btn-secondary.btn-sm {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    align-content: center;
+}
