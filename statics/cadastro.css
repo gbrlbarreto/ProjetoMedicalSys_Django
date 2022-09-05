@@ -1,0 +1,12 @@
+.btn.btn-secondary {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+}
+
+a.btn.btn-primary {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+}
+

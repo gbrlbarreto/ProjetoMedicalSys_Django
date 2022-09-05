@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% load bootstrap %}
+
+{% load static %}
+
+{% block title %} Cadastro de Agendamentos {% endblock %}
+
+{% block main %}
+
+<style>
+    body {
+        background-image: url('../../../media/photos/medico-paciente.jpg');
+        background-attachment: fixed;
+        background-size: cover;
+    }
+</style>
+
+
+
+<br>
+    <div rel="stylesheet" href="agendamentos_form.css" type="text/css">
+
+        <h3 class="titulo">Cadastro de Agendamentos</h3>
+
+    </div>    
+
+<br>    
+    
+    <form method="POST" enctype="multipart/form-data">
+
+        {% csrf_token %}  <!-- Proteção para não ser possível manipular formularios -->
+        {{ form|bootstrap }}   <!-- form2 é o formulario declarado em person_new -->
+        <br>
+       
+    </form>
+    
+<div rel="stylesheet" href="agendamentos_form.css" type="text/css">
+
+    <a  type="submit" href="{% url 'agendamentos_list' %}" class="btn btn-secondary">Cancelar</a> 
+
+    <button type="submit" class="btn btn-primary">Salvar</button>
+
+</div>
+   
+
+<script src={% static 'jquery-3.6.0.min.js' %}></script> 
+<script src={% static 'jquery.mask.min.js' %}></script> 
+
+<script>
+    $(document).ready(function(){
+        $('#id_data').mask('00/00/0000');
+    })
+</script>
+
+{% endblock %}
+
+

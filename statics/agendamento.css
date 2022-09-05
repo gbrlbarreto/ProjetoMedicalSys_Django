@@ -1,0 +1,35 @@
+.box0 {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-around;
+    color: black;
+}
+
+
+p.titulo_lista_pacientes {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    font-size: 28px;
+}
+
+.box1 {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-around;
+}
+
+p.nome_usuario {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: black;
+    font-weight: bold;
+}
+
+h3.titulo_lista_pacientes {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    color: black;
+}
+

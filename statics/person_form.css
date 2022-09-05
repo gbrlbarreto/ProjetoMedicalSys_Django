@@ -1,0 +1,6 @@
+h3.titulo_cadastro_pacientes {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    color: black;
+}

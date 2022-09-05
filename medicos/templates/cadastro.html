@@ -1,0 +1,76 @@
+    {% extends 'base.html' %}
+
+{% load bootstrap %}
+
+{% load static %}
+
+{% block title %} Cadastro de Medicos {% endblock %}
+
+{% block main %}
+
+<style>
+    body {
+        background-image: url('../../media/photos/hospital.jpg');
+        background-attachment: fixed;
+        background-size: cover;
+    }
+</style>
+
+<div style="padding-left:40px;" >
+<div style="padding-top:140px">
+
+    <div class="card mb-3 " style="max-width: 540px;">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <div style="padding-top:155px">
+                <img src="../../media/photos/medical_logo.png" class="img-fluid rounded-start p-3" alt="logo" width="180"
+                    height="180">
+                </div> 
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <div style="padding-left:65px;">
+                    <h5 class="card-title">Cadastro de Médicos</h5>
+                    </div>
+                    <form action="{% url 'cadastro' %}" method="POST">{% csrf_token %}
+                        <div class="mb-3">
+                            <label for="exampleInputFirstName1" class="form-label">Nome</label>
+                            <input type="text" name="first_name" class="form-control" id="exampleInputFirstName1" aria-describedby="emailHelp" required> 
+                          </div>
+                          <div class="mb-3">
+                            <label for="exampleInputLastName1" class="form-label">Sobrenome</label>
+                            <input type="text" name="last_name" class="form-control" id="exampleInputLastName1" aria-describedby="emailHelp" required> 
+                          </div>
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">Email</label>
+                          <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required> 
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputText1" class="form-label">Usuario</label>
+                            <input type="text" name="username" class="form-control" id="exampleInputText1" required>
+                          </div>
+                        <div class="mb-3">
+                          <label for="exampleInputPassword1" class="form-label">Senha</label>
+                          <input type="password" name="senha" class="form-control" id="exampleInputPassword1" required>
+                        </div>
+                        
+                        <div rel="stylesheet" href="cadastro.css" type="text/css">
+
+                            <button type="submit" class="btn btn-primary">Cadastrar</button>
+                            <a href="{% url 'login' %}" class="btn btn-secondary">Voltar</a> 
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+
+
+
+
+
+{% endblock %}

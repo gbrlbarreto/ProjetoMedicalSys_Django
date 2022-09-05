@@ -1,0 +1,7 @@
+a.btn.btn-link {
+    display: flex;
+    align-items: baseline;
+    flex-direction: row;
+    color: black;
+}
+

@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+
+{% block title %} Sistema MedicalSyS {% endblock %}
+
+{% block main %}
+
+<style>
+    body {
+        background-image: url('media/photos/hospital.jpg');
+        background-attachment: fixed;
+        background-size: cover;
+    }
+</style>
+
+<br>
+
+<div>
+    {% if user.is_authenticated %}
+    
+    <div class="box" rel="stylesheet" href="home.css" type="text/css">
+        {% if user.is_authenticated %}
+
+            <p class="nome_usuario">Olá, {{ user.username }}.</p>
+
+            <a href="{% url 'logout' %}" class="badge text-bg-dark" class="button_sair">Sair</a> 
+               
+
+        {% endif %}
+    </div>  
+   
+</div>
+
+    
+<div>
+    
+        
+  
+    </div>
+
+    <div class="row">
+        <div class="col">
+
+        </div>
+        <div class="col">
+
+        </div>
+        <div class="col">
+
+        </div>
+        <div class="col">
+
+        </div>
+        <div class="col">
+
+        </div>
+
+    </div>
+
+    
+    <p></p>
+
+    <div class="card text-center">
+        <div class="card-header">
+            MedicalSyS
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Escolha qual funcionalidade deseja acessar: </h5>
+
+            <br>
+
+            <a href="{% url 'person_list' %}" title="Clique aqui para ver a lista de pacientes" 
+            class="btn btn-outline-primary">Pacientes</a>
+
+            <a href="{% url 'agendamentos_list' %}" title="Clique aqui para acessar a lista de agendamentos" 
+            class="btn btn-outline-secondary">Agendamentos</a>
+        </div>
+    </div>
+    {% else %}
+
+    <div style="padding:15px">
+        <div class="card mb-3 " style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="media/photos/medical_logo.png" class="img-fluid rounded-start p-3" alt="logo" width="180"
+                        height="180">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <div style="padding-left:85px;">
+                            <h5 class="card-title">MedicalSyS</h5>
+                        </div>
+                        <p class="card-text">Esse sistema tem por objetivo realizar cadastro de pacientes e agendamentos
+                            de exames médicos.</p>
+                        <div style="padding-left:85px;">
+                            <a href="{% url 'login' %}" class="btn btn-primary ">Entrar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}
+
+{% block footer %}
+<footer class="footer">
+    <div class="text-center">
+        <span class="text-muted">Desenvolvimento Web com Django</span>
+    </div>
+
+</footer>
+{% endblock %}
