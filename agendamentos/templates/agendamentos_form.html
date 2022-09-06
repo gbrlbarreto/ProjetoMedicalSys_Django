@@ -8,18 +8,30 @@
 
 {% block main %}
 
-    <div style="padding-top:10px;">
-        <h3>Cadastro de Agendamentos</h3>
-    </div>    
-    
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}  <!-- Proteção para não ser possível manipular formularios -->
-        {{ form|bootstrap }}   <!-- form2 é o formulario declarado em person_new -->
-        <br>
-        <a href="{% url 'agendamentos_list' %}" class="btn btn-secondary">Cancelar</a> 
-        <button type="submit" class="btn btn-primary">Salvar</button>
-    </form>
+<style>
+    body {
+        background-image: url('../../media/photos/hospital_4.jpg');
+        background-attachment: fixed;
+        background-size: cover;
+    }
+</style>
 
+<p>
+    <div class="card text-left">
+        <div class="card-header">
+            <b>Cadastro de Agendamentos</b>
+        </div>
+        <div class="card-body">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}  <!-- Proteção para não ser possível manipular formularios -->
+                {{ form|bootstrap }}   <!-- form2 é o formulario declarado em person_new -->
+                <br>
+                <a href="{% url 'agendamentos_list' %}" class="btn btn-secondary">Cancelar</a> 
+                <button type="submit" class="btn btn-primary">Salvar</button>
+            </form>
+        </div>
+    </div>
+    
 <script src={% static 'jquery-3.6.0.min.js' %}></script> 
 <script src={% static 'jquery.mask.min.js' %}></script> 
 

@@ -7,23 +7,38 @@
 {% block title %} Cadastro de Pacientes {% endblock %}
 
 {% block main %}
-    <div style="padding-top:10px;">
-        <h3>Cadastro de Pacientes</h3>
-    </div>    
-    
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}  <!-- Proteção para não ser possível manipular formularios -->
-        {{ form|bootstrap }}   <!-- form é o formulario declarado em person_new -->
-        <br>
-        <a href="{% url 'person_list' %}" class="btn btn-secondary">Cancelar</a> 
-        <button type="submit" class="btn btn-primary">Salvar</button>
-    </form>
 
-<script src={% static 'jquery-3.6.0.min.js' %}></script> 
-<script src={% static 'jquery.mask.min.js' %}></script> 
+<style>
+    body {
+        background-image: url('../../media/photos/hospital_2.jpg');
+        background-attachment: fixed;
+        background-size: cover;
+    }
+</style>
+
+<p>
+<div class="card text-left">
+    <div class="card-header">
+        <b>Cadastro de Pacientes</b>
+    </div>
+    <div class="card-body">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <!-- Proteção para não ser possível manipular formularios -->
+            {{ form|bootstrap }}
+            <!-- form é o formulario declarado em person_new -->
+            <br>
+            <a href="{% url 'person_list' %}" class="btn btn-secondary">Cancelar</a>
+            <button type="submit" class="btn btn-primary">Salvar</button>
+        </form>
+    </div>
+</div>
+
+<script src={% static 'jquery-3.6.0.min.js' %}></script>
+<script src={% static 'jquery.mask.min.js' %}></script>
 
 <script>
-    $(document).ready(function(){
+    $(document).ready(function () {
         $('#id_telefone').mask('(00) 00000-0000');
         $('#id_cep').mask('00000-000');
     })
@@ -92,5 +107,3 @@
 </script>
 
 {% endblock %}
-
-
