@@ -14,53 +14,94 @@
 
 <p>
 
-    <div class="row">
-        <div class="col">
+<div class="row">
+    <div class="col">
 
-        </div>
-
-        <div class="col-6">
-            <h3 style="font-size:28px;">Lista de Agendamentos</h3>
-        </div>
-
-        <div class="col">
-            {% if user.is_authenticated %}
-                <p>Olá {{ user.username }} <a href="{% url 'logout' %}" class="badge text-bg-dark">Sair</a></p>                
-            {% endif %}
-        </div>
     </div>
 
-    <br>
-    
-    <a href="{% url 'agendamentos_new' %}" class="btn btn-primary btn-sm">Novo agendamento</a> 
-    <a href="{% url 'home' %}" class="btn btn-secondary btn-sm">Voltar</a> 
+    <div class="col-6">
+        <h3 style="font-size:28px;">Lista de Agendamentos</h3>
+    </div>
 
-    <br><br>
+    <div class="col">
+        {% if user.is_authenticated %}
+        <p>Olá {{ user.username }} <a href="{% url 'logout' %}" class="badge text-bg-dark">Sair</a></p>
+        {% endif %}
+    </div>
+</div>
 
-    <ul class="list-group">
-        {% for agendamento in agendamentos %}
-            <ul class="list-group list-group-horizontal">
-                <li class="list-group-item">{{ agendamento.paciente.nome }}</li>
-                <li class="list-group-item">{{ agendamento.data }}</li>
-                <li class="list-group-item">Dr. {{ agendamento.medico }}</li>
+<br>
 
-                {% if agendamento.status == "A Confirmar" %}
-                    <li class="list-group-item list-group-item-danger">{{ agendamento.status }}</li>
-                {% elif agendamento.status == "Confirmado" %}
-                    <li class="list-group-item list-group-item-success">{{ agendamento.status }}</li>
-                {% elif agendamento.status == "Finalizado" %}
-                    <li class="list-group-item list-group-item-dark">{{ agendamento.status }}</li>
-                {% endif %}
+<a href="{% url 'agendamentos_new' %}" class="btn btn-primary btn-sm">Novo agendamento</a>
+<a href="{% url 'home' %}" class="btn btn-secondary btn-sm">Voltar</a>
 
-                <li class="list-group-item"><a href="{% url 'agendamentos_update' agendamento.id%}" title="Editar agendamento">
-                    <i class="bi-pencil-square"></i></a></li>
-                <li class="list-group-item"><a href="{% url 'agendamentos_delete' agendamento.id%}" class="trash-item" title="Excluir agendamento">
-                    <i class="bi-trash-fill"></i></a></li>
-              </ul>
-        {% endfor %}
+<br><br>
+<div class="card" style="width: 700px;">
+    <div class="card-body">
+        <table class="table table-sm">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nome do Paciente</th>
+                    <th scope="col">Data Agendada</th>
+                    <th scope="col">Médico</th>
+                    <th scope="col">Status da Consulta</th>
+                </tr>
+            </thead>
+            {% for agendamento in agendamentos %}
+            <tbody>
+                <tr>
+                    <th scope="row">{{ agendamento.id }}</th>
+                    <td>{{ agendamento.paciente.nome }}</td>
+                    <td>{{ agendamento.data }}</td>
+                    <td>Dr. {{ agendamento.medico }}</td>
+                    <td>
+                        {% if agendamento.status == "A Confirmar" %}
+                        <li class="list-group-item list-group-item-danger">{{ agendamento.status }}</li>
+                        {% elif agendamento.status == "Confirmado" %}
+                        <li class="list-group-item list-group-item-success">{{ agendamento.status }}</li>
+                        {% elif agendamento.status == "Finalizado" %}
+                        <li class="list-group-item list-group-item-dark">{{ agendamento.status }}</li>
+                        {% endif %}
+                    </td>
+                    <td><a href="{% url 'agendamentos_update' agendamento.id%}" title="Editar agendamento">
+                        <i class="bi-pencil-square"></i></a></td>
+                    <td><a href="{% url 'agendamentos_delete' agendamento.id%}" class="trash-item"
+                        title="Excluir agendamento">
+                        <i class="bi-trash-fill"></i></a></td>
+            </tbody>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+<!-- Agendamento 2ª forma
+<ul class="list-group">
+    {% for agendamento in agendamentos %}
+    <ul class="list-group list-group-horizontal">
+        <li class="list-group-item">{{ agendamento.paciente.nome }}</li>
+        <li class="list-group-item">{{ agendamento.data }}</li>
+        <li class="list-group-item">Dr. {{ agendamento.medico }}</li>
+
+        {% if agendamento.status == "A Confirmar" %}
+        <li class="list-group-item list-group-item-danger">{{ agendamento.status }}</li>
+        {% elif agendamento.status == "Confirmado" %}
+        <li class="list-group-item list-group-item-success">{{ agendamento.status }}</li>
+        {% elif agendamento.status == "Finalizado" %}
+        <li class="list-group-item list-group-item-dark">{{ agendamento.status }}</li>
+        {% endif %}
+
+        <li class="list-group-item"><a href="{% url 'agendamentos_update' agendamento.id%}" title="Editar agendamento">
+                <i class="bi-pencil-square"></i></a></li>
+        <li class="list-group-item"><a href="{% url 'agendamentos_delete' agendamento.id%}" class="trash-item"
+                title="Excluir agendamento">
+                <i class="bi-trash-fill"></i></a></li>
     </ul>
+    {% endfor %}
+</ul>
+-->
 
-    <!-- Agendamento 1ª forma
+<!-- Agendamento 1ª forma
     <ul class="list-group">
         {% for agendamento in agendamentos %}
 
@@ -75,14 +116,14 @@
         {% endfor %}
     </ul>
     -->
-    <br>
+<br>
 
 {% endblock %}
 
 {% block footer %}
-    <footer class="footer">
-        <div class="text-center">
-            <span class="text-muted">Desenvolvimento Web com Django</span>
-        </div>
-    </footer>
+<footer class="footer">
+    <div class="text-center">
+        <span class="text-muted">Desenvolvimento Web com Django</span>
+    </div>
+</footer>
 {% endblock %}
