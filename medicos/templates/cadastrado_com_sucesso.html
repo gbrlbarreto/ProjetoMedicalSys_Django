@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% load bootstrap %}
+
+{% load static %}
+
+{% block title %} Cadastro de Medicos {% endblock %}
+
+{% block main %}
+
+<style>
+    body {
+        background-image: url('../../media/photos/hospital.jpg');
+        background-attachment: fixed;
+        background-size: cover;
+    }
+</style>
+
+<div style="padding:15px">
+    <div class="card mb-3 " style="max-width: 540px;">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="../../media/photos/medical_logo.png" class="img-fluid rounded-start p-3" alt="logo" width="180"
+                    height="180">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <div style="padding-left:15px;">
+                        <h5 class="card-title">Médico cadastrado com sucesso!</h5>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="d-grid gap-2 col-12 mx-auto">
+                        <a href="{% url 'login' %}" class="btn btn-primary ">Fazer Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}
