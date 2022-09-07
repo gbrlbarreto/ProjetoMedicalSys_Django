@@ -23,3 +23,4 @@ def cadastro(request):
         user.save()
         return redirect('login')
      #   return HttpResponse('Usuário cadastrado com sucesso')
+
