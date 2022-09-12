@@ -74,48 +74,6 @@
         </table>
     </div>
 </div>
-
-<!-- Agendamento 2ª forma
-<ul class="list-group">
-    {% for agendamento in agendamentos %}
-    <ul class="list-group list-group-horizontal">
-        <li class="list-group-item">{{ agendamento.paciente.nome }}</li>
-        <li class="list-group-item">{{ agendamento.data }}</li>
-        <li class="list-group-item">Dr. {{ agendamento.medico }}</li>
-
-        {% if agendamento.status == "A Confirmar" %}
-        <li class="list-group-item list-group-item-danger">{{ agendamento.status }}</li>
-        {% elif agendamento.status == "Confirmado" %}
-        <li class="list-group-item list-group-item-success">{{ agendamento.status }}</li>
-        {% elif agendamento.status == "Finalizado" %}
-        <li class="list-group-item list-group-item-dark">{{ agendamento.status }}</li>
-        {% endif %}
-
-        <li class="list-group-item"><a href="{% url 'agendamentos_update' agendamento.id%}" title="Editar agendamento">
-                <i class="bi-pencil-square"></i></a></li>
-        <li class="list-group-item"><a href="{% url 'agendamentos_delete' agendamento.id%}" class="trash-item"
-                title="Excluir agendamento">
-                <i class="bi-trash-fill"></i></a></li>
-    </ul>
-    {% endfor %}
-</ul>
--->
-
-<!-- Agendamento 1ª forma
-    <ul class="list-group">
-        {% for agendamento in agendamentos %}
-
-            <li class="list-group-item"> 
-                {{ agendamento.paciente.nome }} | {{ agendamento.data }} | {{ agendamento.status }} <a href="{% url 'agendamentos_update' agendamento.id%}" title="Editar agendamento">
-                    <i class="bi-pencil-square"></i>
-                </a>
-                <a href="{% url 'agendamentos_delete' agendamento.id%}" class="trash-item" title="Excluir agendamento">
-                    <i class="bi-trash-fill"></i>
-                </a>
-            </li>
-        {% endfor %}
-    </ul>
-    -->
 <br>
 
 {% endblock %}
