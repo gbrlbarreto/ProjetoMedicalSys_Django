@@ -38,7 +38,9 @@ def agendamentos_delete(request, id):
     form = AgendamentoForm(request.POST or None, request.FILES or None, instance=agendamento)
 
     if request.method == 'POST':
-        agendamento.delete()
+        #agendamento.delete()
+        agendamento.arquivado = True
+        agendamento.save()
         return redirect('agendamentos_list')
     
     return render(request, 'agendamentos_delete_confirm.html', {'agendamento': agendamento})
