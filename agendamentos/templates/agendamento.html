@@ -49,6 +49,7 @@
                 </tr>
             </thead>
             {% for agendamento in agendamentos %}
+            {% if agendamento.arquivado == False %}
             <tbody>
                 <tr>
                     <th scope="row">{{ agendamento.id }}</th>
@@ -67,9 +68,10 @@
                     <td><a href="{% url 'agendamentos_update' agendamento.id%}" title="Editar agendamento">
                         <i class="bi-pencil-square"></i></a></td>
                     <td><a href="{% url 'agendamentos_delete' agendamento.id%}" class="trash-item"
-                        title="Excluir agendamento">
-                        <i class="bi-trash-fill"></i></a></td>
+                        title="Arquivar agendamento">
+                        <i class="bi-archive-fill"></i></a></td>
             </tbody>
+            {% endif %}
             {% endfor %}
         </table>
     </div>

@@ -10,6 +10,7 @@ STATUS_CHOICES = [
 
 
 class Agendamento(models.Model):
+    arquivado = models.BooleanField(null=False, default=False)
     data = models.CharField(max_length=30)
     descricao = models.TextField()
     status = models.CharField(max_length=12, choices=STATUS_CHOICES)
