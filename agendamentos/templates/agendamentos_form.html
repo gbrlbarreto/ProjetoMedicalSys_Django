@@ -34,12 +34,18 @@
     
 <script src={% static 'jquery-3.6.0.min.js' %}></script> 
 <script src={% static 'jquery.mask.min.js' %}></script> 
+<script src={% static 'bootstrap-datepicker.min.js' %}></script>
+<script src={% static 'bootstrap-datepicker.pt-BR.min.js' %}></script>
 
 <script>
-    $(document).ready(function(){
-        $('#id_data').mask('00/00/0000');
-    })
+    $('#id_data').datepicker({
+    format: 'dd/mm/yyyy',
+    startDate: '-3d',
+    language: 'pt-BR'
+});
 </script>
+
+
 
 {% endblock %}
 
