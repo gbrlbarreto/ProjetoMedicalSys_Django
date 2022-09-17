@@ -23,10 +23,17 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path
 from django.contrib.auth import views as auth_views
+from medicos.views import MedicoViewSet
+from rest_framework import routers
+
+router = routers.DefaultRouter()
+router.register(r'medicos', MedicoViewSet)
 
 
 urlpatterns = [
     path('', include(home_urls)),
+    path('', include(router.urls)),
+    path('api-auth/', include('rest_framework.urls')),
     path('agendamentos/', include(agendamentos_urls)),
     path('clientes/', include(clientes_urls)),
     path('medicos/', include(medicos_urls)),
