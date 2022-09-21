@@ -41,6 +41,11 @@
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
 <script>
+    
+    $(document).ready(function(){
+        $('#id_data').mask('00/00/0000');
+    })
+
     $('#id_data').datepicker({
         format: 'dd/mm/yyyy',
         startDate: '-3d',
