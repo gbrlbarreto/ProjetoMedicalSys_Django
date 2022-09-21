@@ -66,10 +66,10 @@
                         {% endif %}
                     </td>
                     <td><a href="{% url 'agendamentos_update' agendamento.id%}" title="Editar agendamento">
-                        <i class="bi-pencil-square"></i></a></td>
+                            <i class="bi-pencil-square"></i></a></td>
                     <td><a href="{% url 'agendamentos_delete' agendamento.id%}" class="trash-item"
-                        title="Arquivar agendamento">
-                        <i class="bi-archive-fill"></i></a></td>
+                            title="Arquivar agendamento">
+                            <i class="bi-archive-fill"></i></a></td>
             </tbody>
             {% endif %}
             {% endfor %}
@@ -77,6 +77,34 @@
     </div>
 </div>
 <br>
+
+<div id='calendar'></div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var calendarEl = document.getElementById('calendar');
+
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            headerToolbar: {
+                left: 'dayGridMonth,timeGridWeek,timeGridDay',
+                center: 'title',
+                right: 'prevYear,prev,next,nextYear'
+            },
+            themeSystem: 'bootstrap5',
+        });
+
+        calendar.render();
+    });
+
+</script>
+
+
+
+
+
+
+
+
 
 {% endblock %}
 
