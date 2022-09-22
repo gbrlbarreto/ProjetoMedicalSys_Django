@@ -1,0 +1,17 @@
+h3.titulo {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.col2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.col3 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
