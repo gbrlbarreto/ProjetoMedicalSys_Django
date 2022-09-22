@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %} Pagina Inicial {% endblock %}
 
@@ -18,22 +19,17 @@
     {% if user.is_authenticated %}
     <div class="row">
         <div class="col">
-            Olá {{ user.username }}
-        </div>
-
-        <div class="col-8">
-        </div>
-
-        <div class="col">
+            <a>Olá, {{ user.username }} !</a>
             <a href="{% url 'logout' %}" class="badge text-bg-dark">Sair</a>
         </div>
+
     </div>
                
     <p></p>
 
     <div class="card text-center">
         <div class="card-header">
-            <b>MedicalSys</b>
+            <b>MedicalSyS</b>
         </div>
         <div class="card-body">
             <h5 class="card-title">Escolha qual funcionalidade deseja acessar: </h5>
@@ -54,7 +50,7 @@
                 <div class="col-md-8">
                     <div class="card-body">
                         <div style="padding-left:85px;">
-                            <h5 class="card-title">MedicalSys</h5>
+                            <h5 class="card-title">MedicalSyS</h5>
                         </div>
                         <p class="card-text">Esse sistema tem por objetivo realizar cadastro de pacientes e agendamentos
                             de exames médicos.</p>

@@ -1,12 +1,5 @@
-.box {
+.col {
     display: flex;
-    align-items: baseline;
+    align-items: center;
     justify-content: space-between;
-}
-
-p.nome_usuario {
-    margin-top: 0;
-    margin-bottom: 1rem;
-    color: black;
-    font-weight: bold;
 }
