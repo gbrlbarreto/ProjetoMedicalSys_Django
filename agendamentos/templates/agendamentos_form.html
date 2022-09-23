@@ -17,30 +17,53 @@
 </style>
 
 <p>
-    <div class="card text-left">
-        <div class="card-header">
-            <b>Cadastro de Agendamentos</b>
-        </div>
-        <div class="card-body">
-            <form method="POST" enctype="multipart/form-data">
-                {% csrf_token %}  <!-- Proteção para não ser possível manipular formularios -->
-                {{ form|bootstrap }}   <!-- form2 é o formulario declarado em person_new -->
-                <br>
-                <button type="submit" class="btn btn-primary">Salvar</button>
-                <a href="{% url 'agendamentos_list' %}" class="btn btn-secondary">Cancelar</a> 
-            </form>
-        </div>
+<div class="card text-left">
+    <div class="card-header">
+        <b>Cadastro de Agendamentos</b>
     </div>
-    
-<script src={% static 'jquery-3.6.0.min.js' %}></script> 
-<script src={% static 'jquery.mask.min.js' %}></script> 
+    <div class="card-body">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <!-- Proteção para não ser possível manipular formularios -->
+            {{ form|bootstrap }}
+            <!-- form2 é o formulario declarado em person_new -->
+            <br>
+            <button type="submit" class="btn btn-primary">Salvar</button>
+            <a href="{% url 'agendamentos_list' %}" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+</div>
+
+<script src={% static 'jquery-3.6.0.min.js' %}></script>
+<script src={% static 'jquery.mask.min.js' %}></script>
+<script src={% static 'bootstrap-datepicker.min.js' %}></script>
+<script src={% static 'bootstrap-datepicker.pt-BR.min.js' %}></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
 <script>
+    
     $(document).ready(function(){
         $('#id_data').mask('00/00/0000');
     })
+
+    $('#id_data').datepicker({
+        format: 'dd/mm/yyyy',
+        startDate: '-3d',
+        language: 'pt-BR'
+    });
+
+    $(document).ready(function () {
+        $('#id_status').select2();
+    });
+
+    $(document).ready(function () {
+        $('#id_medico').select2();
+    });
+
+     $(document).ready(function () {
+        $('#id_paciente').select2();
+    });
+
 </script>
 
 {% endblock %}
-
-

@@ -1,6 +1,15 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
+from .models import Medico
+from .serializers import MedicoSerializer
+from rest_framework import viewsets
+
+
+class MedicoViewSet(viewsets.ModelViewSet):
+    queryset = Medico.objects.all()
+    serializer_class = MedicoSerializer
+
 
 def cadastro(request):
     if request.method == "GET":

@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'home', #registrar aplicação em migrations
     'agendamentos', #registrar aplicação em migrations
     'medicos', #registrar aplicação em migrations
+    'rest_framework', #registro do django resto_framework
 ]
 
 MIDDLEWARE = [
