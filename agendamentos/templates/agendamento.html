@@ -4,6 +4,7 @@
 
 {% block main %}
 
+
 <style>
     body {
         background-image: url('../../media/photos/hospital_4.jpg');
@@ -33,9 +34,9 @@
 
 <br>
 
-<div class="row3" >
+<div class="row3">
     <div class="coluna3">
-        <a href="{% url 'agendamentos_new' %}" class="btn btn-primary btn-sm">Novo agendamento</a>    
+        <a href="{% url 'agendamentos_new' %}" class="btn btn-primary btn-sm">Novo agendamento</a>
         <a href="{% url 'home' %}" class="btn btn-secondary btn-sm">Voltar</a>
     </div>
 </div>
@@ -85,33 +86,38 @@
 </div>
 <br>
 
-<div id='calendar'></div>
+<div id='calendar' class="card" style="width: 700px;"></div>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         var calendarEl = document.getElementById('calendar');
 
         var calendar = new FullCalendar.Calendar(calendarEl, {
+            buttonText: {
+                today: "Hoje",
+                month: "Mês",
+                week: "Semana",
+                day: "Dia",
+                list: "Lista",
+            },
+            locale: "pt-br",
+            themeSystem: 'bootstrap5',
             headerToolbar: {
-                left: 'dayGridMonth,timeGridWeek,timeGridDay',
+                left: 'timeGridDay,timeGridWeek,dayGridMonth',
                 center: 'title',
                 right: 'prevYear,prev,next,nextYear'
             },
-            themeSystem: 'bootstrap5',
+
+
         });
 
         calendar.render();
     });
 
+
+
+
 </script>
-
-
-
-
-
-
-
-
 
 {% endblock %}
 
