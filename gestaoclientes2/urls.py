@@ -27,7 +27,7 @@ from medicos.views import MedicoViewSet
 from rest_framework import routers
 
 router = routers.DefaultRouter()
-router.register(r'medicos', MedicoViewSet)
+router.register(r'medicos_list', MedicoViewSet)
 
 
 urlpatterns = [
