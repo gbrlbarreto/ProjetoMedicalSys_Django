@@ -1,1 +1,1 @@
-web: gunicorn project.wsgi
+web: gunicorn gestaoclientes2.wsgi
