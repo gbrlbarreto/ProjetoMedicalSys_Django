@@ -28,8 +28,8 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['medicalsys22.herokuapp.com', '127.0.0.1']
-#ALLOWED_HOSTS = [] 
+ALLOWED_HOSTS = ['medicalsys22.herokuapp.com']
+#ALLOWED_HOSTS = [, '127.0.0.1'] 
 #Endereços que irão dar acesso ao aplicativo
 
 
