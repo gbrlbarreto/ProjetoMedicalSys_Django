@@ -28,8 +28,8 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['medicalsys22.herokuapp.com']
-#ALLOWED_HOSTS = [, '127.0.0.1'] 
+ALLOWED_HOSTS = ['medicalsys22.herokuapp.com', '127.0.0.1']
+#ALLOWED_HOSTS = [] 
 #Endereços que irão dar acesso ao aplicativo
 
 
@@ -54,8 +54,8 @@ INSTALLED_APPS = [
 
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': [
-        #'rest_framework.renderers.JSONRenderer',
-        #'rest_framework.renderers.BrowsableAPIRenderer',
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
     ]
 }
 
