@@ -1,5 +1,9 @@
 ### Projeto Desafio Django - Medical
 
+- Aplicação hospedada no Heroku: *https://medicalsys22.herokuapp.com/*
+- Login teste: 
+  - Usuário: **admin**
+  - Password: **admin**
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
@@ -60,3 +64,4 @@ python manage.py runserver
 - Módulo Paciente(Cliente) (Create, Read, Update, Delete)
 - Acesso aos dados através do Django RestFramework
 - Disponibilidade do Swagger
+- Site hospedado no Heroku
