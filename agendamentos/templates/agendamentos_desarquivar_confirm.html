@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %} Arquivamento de Agendamento {% endblock %}
+{% block title %} Desarquivamento de Agendamento {% endblock %}
 
 {% block main %}
 
@@ -10,14 +10,14 @@
                 <div class="col-md-15">
                     <div class="card-body">
                         <div style="padding-left:135px;">
-                            <h5 class="card-title">Arquivamento de Agendamento</h5>
+                            <h5 class="card-title">Desarquivamento de Agendamento</h5>
                         </div>
-                        <p class="card-text">Tem certeza que deseja arquivar o agendamento do paciente {{ agendamento.paciente.nome }}?</p>
+                        <p class="card-text">Tem certeza que deseja desarquivar o agendamento do paciente {{ agendamento.paciente.nome }}?</p>
                         <div style="padding-left:175px;">
                             <form method="POST" enctype="multipart/form-data">
                                 {% csrf_token %}
-                                <button type="submit" class="btn btn-danger">Arquivar</button>
-                                <a href="{% url 'agendamentos_list' %}" class="btn btn-secondary">Voltar</a> 
+                                <button type="submit" class="btn btn-danger">Desarquivar</button>
+                                <a href="{% url 'agendamentos_archived' %}" class="btn btn-secondary">Voltar</a> 
                             </form>
                         </div>
                     </div>

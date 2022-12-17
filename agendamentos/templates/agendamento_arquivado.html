@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %} Lista de Agendamentos {% endblock %}
+{% block title %} Agendamentos Arquivados {% endblock %}
 
 {% block main %}
 
@@ -19,8 +19,8 @@
 
     </div>
 
-    <div class="col-6">
-        <h3 style="font-size:28px;">Lista de Agendamentos</h3>
+    <div class="col-7">
+        <h3 style="font-size:28px;">Agendamentos Arquivados</h3>
     </div>
 
     <div class="col">
@@ -32,9 +32,7 @@
 
 <br>
 
-<a href="{% url 'agendamentos_new' %}" class="btn btn-primary btn-sm">Novo agendamento</a>
-<a href="{% url 'home' %}" class="btn btn-secondary btn-sm">Voltar</a>
-<a style="margin-left: 350px; text-decoration: none;" href="{% url 'agendamentos_archived' %}" class="btn btn-outline-primary btn-sm">Arquivados</a>
+<a href="{% url 'agendamentos_list' %}" class="btn btn-secondary btn-sm">Voltar</a>
 
 <br><br>
 <div class="card" style="width: 700px;">
@@ -50,7 +48,7 @@
                 </tr>
             </thead>
             {% for agendamento in agendamentos %}
-            {% if agendamento.arquivado == False %}
+            {% if agendamento.arquivado == True %}
             <tbody>
                 <tr>
                     <th scope="row">{{ agendamento.id }}</th>
@@ -66,12 +64,9 @@
                         <li class="list-group-item list-group-item-dark">{{ agendamento.status }}</li>
                         {% endif %}
                     </td>
-                    <td><a href="{% url 'agendamentos_update' agendamento.id%}" title="Editar agendamento">
-                        <i class="bi-pencil-square"></i></a></td>
-                    <td><a href="{% url 'agendamentos_delete' agendamento.id%}" class="trash-item"
-                        title="Arquivar agendamento">
-                        <i class="bi-archive-fill"></i></a></td>
-                    </tbody>
+                    <td><a href="{% url 'agendamentos_unarchive' agendamento.id%}" title="Desarquivar agendamento">
+                        <i class="bi bi-arrow-bar-up"></i>
+            </tbody>
             {% endif %}
             {% endfor %}
         </table>

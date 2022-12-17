@@ -1,5 +1,7 @@
 from django.urls import path
 from .views import agendamentos_list #importando a função persons_list do arquivo views.py
+from .views import agendamentos_archived #importando a função agendamentos_archive do arquivo views.py
+from .views import agendamentos_unarchive #importando a função agendamentos_unarchive do arquivo views.py
 from .views import agendamentos_new #importando a função persons_new do arquivo views.py
 from .views import agendamentos_update #importando a função persons_update do arquivo views.py
 from .views import agendamentos_delete #importando a função persons_delete do arquivo views.py
@@ -8,6 +10,8 @@ from .views import agendamentos_delete #importando a função persons_delete do 
 urlpatterns = [
     path('list/', agendamentos_list, name="agendamentos_list"),
     path('new/', agendamentos_new, name="agendamentos_new"),
+    path('archived/', agendamentos_archived, name="agendamentos_archived"),
+    path('unarchive/<int:id>/', agendamentos_unarchive, name="agendamentos_unarchive"),
     path('update/<int:id>/', agendamentos_update, name="agendamentos_update"),
     path('delete/<int:id>/', agendamentos_delete, name="agendamentos_delete"),
 ]
