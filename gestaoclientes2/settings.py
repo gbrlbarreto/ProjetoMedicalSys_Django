@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'agendamentos', #registrar aplicação em migrations
     'medicos', #registrar aplicação em migrations
     'rest_framework', #registro do django resto_framework
+    'swagger',
+    'drf_yasg', #registro do swagger res_framework
 ]
 
 MIDDLEWARE = [
