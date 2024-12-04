@@ -57,4 +57,4 @@ python manage.py runserver
 - Acesso dos dados dos Médicos através do Django RestFramework
 - Módulo Agendamento (Create, Read, Update, Delete)
 - Módulo Médico (Create, Read, Update, Delete)
-- Módulo Paciente(Cliente) (Create, Read, Update, Delete)
+- Módulo Paciente (Cliente) (Create, Read, Update, Delete)
