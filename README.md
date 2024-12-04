@@ -58,5 +58,3 @@ python manage.py runserver
 - Módulo Agendamento (Create, Read, Update, Delete)
 - Módulo Médico (Create, Read, Update, Delete)
 - Módulo Paciente(Cliente) (Create, Read, Update, Delete)
-- Acesso aos dados através do Django RestFramework
-- Disponibilidade do Swagger
