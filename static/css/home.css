@@ -1,0 +1,10 @@
+body {
+    background-image: url("/static/img/hospital.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.home-bg {
+    background: url("/static/img/hospital.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
