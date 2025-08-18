@@ -141,5 +141,5 @@ LOGIN_REDIRECT_URL = 'home' #Nome da URL após fazer login no sistema
 #STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_DIRS = [ #pasta de arquivos estáticos
-    'statics',
+    'static',
 ]
