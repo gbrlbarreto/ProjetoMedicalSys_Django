@@ -3,12 +3,19 @@ from django.contrib.auth.decorators import login_required
 from .models import Agendamento
 from .forms import AgendamentoForm
 
-# Create your views here.
-@login_required
-def agendamentos_list(request): #toda função deve retornar um request
-    agendamentos = Agendamento.objects.all() #buscar todos os dados do banco de dados
-    return render(request, 'agendamento.html', {'agendamentos': agendamentos})
+#@login_required
+#def agendamentos_list(request): #toda função deve retornar um request
+#    agendamentos = Agendamento.objects.all() #buscar todos os dados do banco de dados
+#    return render(request, 'agendamento.html', {'agendamentos': agendamentos})
 
+@login_required
+def agendamentos_list(request):
+    agendamentos = (Agendamento.objects
+        .filter(arquivado=False)   # apenas não arquivados
+        .select_related('paciente')  # otimiza consulta
+        .order_by('-data')  # mais recentes primeiro (opcional)
+    )
+    return render(request, 'agendamento.html', {'agendamentos': agendamentos})
 
 @login_required
 def agendamentos_new(request):

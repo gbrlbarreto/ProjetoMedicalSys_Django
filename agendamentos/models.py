@@ -11,7 +11,9 @@ STATUS_CHOICES = [
 
 class Agendamento(models.Model):
     arquivado = models.BooleanField(null=False, default=False)
-    data = models.CharField(max_length=30)
+    #data = models.CharField(max_length=30)
+    data = models.DateField()   # Apenas a data
+    hora = models.TimeField(null=True, blank=True)   
     descricao = models.TextField()
     status = models.CharField(max_length=12, choices=STATUS_CHOICES)
     medico = models.ForeignKey(User, on_delete=models.CASCADE)

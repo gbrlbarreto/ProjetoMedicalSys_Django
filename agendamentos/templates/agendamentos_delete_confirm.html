@@ -1,30 +1,37 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %} Exclusão de Paciente {% endblock %}
+{% block title %} Arquivamento de Agendamento {% endblock %}
 
 {% block main %}
 
-    <div style="padding:15px">
-        <div class="card mb-3 " style="max-width: 540px;">
-            <div class="row g-0">
-                <div class="col-md-15">
-                    <div class="card-body">
-                        <div style="padding-left:135px;">
-                            <h5 class="card-title">Arquivamento de Agendamento</h5>
-                        </div>
-                        <p class="card-text">Tem certeza que deseja arquivar o agendamento do paciente {{ agendamento.paciente.nome }}?</p>
-                        <div style="padding-left:175px;">
-                            <form method="POST" enctype="multipart/form-data">
-                                {% csrf_token %}
-                                <button type="submit" class="btn btn-danger">Arquivar</button>
-                                <a href="{% url 'agendamentos_list' %}" class="btn btn-secondary">Voltar</a> 
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<style>
+    body {
+        background-image: url("{% static 'img/hospital_4.jpg' %}");
+        background-attachment: fixed;
+        background-size: cover;
+    }
+</style>
+
+    <div class="form-container-ag-delete">
+    <div class="card-ag-delete">
+        <div class="card-header-ag-delete">
+            Arquivamento de Agendamento
+        </div>
+        <p class="text-center">Tem certeza que deseja arquivar o agendamento do paciente <b>{{ agendamento.paciente.nome }}</b>?</p>
+        <div class="btn-container-ag-delete">
+            <form method="POST">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">
+                    <i class="bi bi-archive-fill"></i> Arquivar
+                </button>
+            </form>
+            <a href="{% url 'agendamentos_list' %}" class="btn btn-secondary">
+                <i class="bi bi-x-circle"></i> Voltar
+            </a>
         </div>
     </div>
+</div>
 
 {% endblock %}
 

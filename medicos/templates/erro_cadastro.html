@@ -1,42 +1,29 @@
 {% extends 'base.html' %}
-
-{% load bootstrap %}
-
 {% load static %}
-
-{% block title %} Cadastro de Medicos {% endblock %}
+{% block title %}Erro no Cadastro{% endblock %}
 
 {% block main %}
+<link rel="stylesheet" href="{% static 'css/cadastro.css' %}">
 
-<style>
-    body {
-        background-image: url('../../media/photos/hospital.jpg');
-        background-attachment: fixed;
-        background-size: cover;
-    }
-</style>
+<div class="page-container">
+    <div class="card-cadastro">
+        <!-- Lado esquerdo -->
+        <div class="card-left">
+            <img src="{% static 'img/medical_logo.png' %}" alt="logo" class="logo">
+        </div>
 
-<div style="padding:15px">
-    <div class="card mb-3 " style="max-width: 540px;">
-        <div class="row g-0">
-            <div class="col-md-4">
-                <img src="../../media/photos/medical_logo.png" class="img-fluid rounded-start p-3" alt="logo" width="180"
-                    height="180">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <div style="padding-left:70px;">
-                        <h5 class="card-title">Erro ao cadastrar-se</h5>
-                    </div>
-                    <p class="card-text">Já existe um médico cadastrado com o nome de <b>usuário</b> informado, tente outro nome!</p>
-                    <div style="padding-left: 50px;">
-                        <a href="{% url 'cadastro' %}" class="btn btn-primary ">Cadastrar-se</a>
-                        <a href="{% url 'login' %}" class="btn btn-secondary ">Fazer login</a>
-                    </div>
-                </div>
+        <!-- Lado direito -->
+        <div class="card-right">
+            <h5 class="titulo text-danger">Erro no cadastro</h5>
+            <p class="mt-3 text-center">
+                Já existe um médico cadastrado com o nome de <b>usuário</b> informado. Tente novamente!
+            </p>
+
+            <div class="d-flex justify-content-center gap-2 mt-4">
+                <a href="{% url 'cadastro' %}" class="btn btn-primary">Tentar novamente</a>
+                <a href="{% url 'login' %}" class="btn btn-secondary">Fazer login</a>
             </div>
         </div>
     </div>
 </div>
-
 {% endblock %}

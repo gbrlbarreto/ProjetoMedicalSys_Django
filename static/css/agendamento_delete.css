@@ -1,0 +1,27 @@
+.form-container-ag-delete {
+    max-width: 500px;
+    margin: auto auto;
+}
+
+.card-ag-delete {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.card-header-ag-delete {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.btn-container-ag-delete {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}

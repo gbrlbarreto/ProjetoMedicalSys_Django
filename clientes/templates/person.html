@@ -13,48 +13,48 @@
     }
 </style>
 
-<p>
+<div class="container person-list-container">
 
-    <div class="row">
-        <div class="col">
-
+    <!-- Header -->
+    <div class="row align-items-center mb-4" style="margin-top: 0;">
+        <div class="col-4">
         </div>
-
-        <div class="col-6">
-            <h3 style="font-size:30px;">Lista de Pacientes</h3>
+        <div class="col-4 text-center">
+            <h3 class="person-list-title">Lista de Pacientes</h3>
         </div>
-
-        <div class="col">
+        <div class="col-4 text-end">
             {% if user.is_authenticated %}
-                <p>Olá {{ user.username }} <a href="{% url 'logout' %}" class="badge text-bg-dark">Sair</a></p>                
+                <span class="fw-bold">Olá, {{ user.first_name }} {{ user.last_name }}</span>
+                <a href="{% url 'logout' %}" class="btn btn-danger logout-btn">
+                    Sair <i class="bi bi-box-arrow-right"></i>
+                </a>
             {% endif %}
         </div>
     </div>
 
-    <br>
-    
-    <a href="{% url 'person_new' %}" class="btn btn-primary btn-sm">Novo paciente</a> 
-    <a href="{% url 'home' %}" class="btn btn-secondary btn-sm">Voltar</a> 
+    <!-- Botões de ação -->
+    <div class="mb-3 text-center action-buttons">
+        <a href="{% url 'person_new' %}" class="btn btn-primary btn-sm">Novo paciente</a>
+        <a href="{% url 'home' %}" class="btn btn-secondary btn-sm">Voltar</a>
+    </div>
 
-    <br><br>
-
-    <ul class="list-group">
+    <!-- Lista de pacientes -->
+    <ul class="list-group person-list">
         {% for person in persons %}
-
-            <li class="list-group-item"> 
-                {{ person.nome }} <a href="{% url 'persons_update' person.id%}" title="Editar paciente">
-                    <i class="bi-pencil-square"></i>
-                </a>
-                <a href="{% url 'persons_delete' person.id%}" class="trash-item" title="Excluir paciente">
-                    <i class="bi-trash-fill"></i>
-                </a>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{ person.nome }}
+                <span class="person-actions">
+                    <a href="{% url 'persons_update' person.id %}" title="Editar paciente" class="text-primary">
+                        <i class="bi-pencil-square"></i>
+                    </a>
+                    <a href="{% url 'persons_delete' person.id %}" title="Excluir paciente" class="text-danger">
+                        <i class="bi-trash-fill"></i>
+                    </a>
+                </span>
             </li>
-
         {% endfor %}
     </ul>
-
-    <br>
-
+</div>
 {% endblock %}
 
 {% block footer %}

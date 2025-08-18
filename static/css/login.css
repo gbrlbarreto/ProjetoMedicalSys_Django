@@ -1,0 +1,44 @@
+/* Área que centraliza o conteúdo, já considerando o footer fixo (≈60px) */
+.main-login {
+  min-height: calc(100vh - 60px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px 80px; /* espaçamento extra para não colidir com o footer */
+}
+
+/* Card */
+.login-card {
+  max-width: 680px;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.15);
+  overflow: hidden;
+}
+
+/* Coluna do logo */
+.login-logo {
+  background-color: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Corpo do formulário */
+.login-body {
+  padding: 2rem;
+}
+
+.login-body h5 {
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+
+/* Ações (link + botão) */
+.login-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: .75rem;
+}

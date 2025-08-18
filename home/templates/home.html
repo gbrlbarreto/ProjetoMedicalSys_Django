@@ -5,68 +5,55 @@
 
 {% block main %}
 
-<style>
-    body {  
-        background-image: url("{% static 'img/hospital.jpg' %}");
-        background-attachment: fixed;
-        background-size: cover;
-    }
-</style>
-
 <p>
 
 <div>
     {% if user.is_authenticated %}
-    <div class="row">
-        <div class="col">
-            Olá {{ user.username }}
-        </div>
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <span class="fw-bold fs-5">Olá, {{ user.first_name }} {{ user.last_name }}</span>
+        <a href="{% url 'logout' %}" class="btn btn-danger logout-btn">Sair<i class="bi bi-box-arrow-right"></i></a>
+    </div>
 
-        <div class="col-8">
-        </div>
-
-        <div class="col">
-            <a href="{% url 'logout' %}" class="badge text-bg-dark">Sair</a>
+    <div class="auth-center">
+        <div class="card text-center shadow-lg p-4 rounded-4 card-custom">
+            <div class="card-header bg-primary text-white fw-bold">
+                MedicalSys
+            </div>
+            <div class="card-body">
+                <h5 class="card-title mb-4">Escolha a funcionalidade:</h5>
+                <div class="d-grid gap-3">
+                    <a href="{% url 'person_list' %}" class="btn btn-outline-primary">Pacientes</a>
+                    <a href="{% url 'agendamentos_list' %}" class="btn btn-outline-secondary">Agendamentos</a>
+                </div>
+            </div>
         </div>
     </div>
-               
-    <p></p>
-
-    <div class="card text-center">
-        <div class="card-header">
-            <b>MedicalSys</b>
-        </div>
-        <div class="card-body">
-            <h5 class="card-title">Escolha qual funcionalidade deseja acessar: </h5>
-            <br>
-            <a href="{% url 'person_list' %}" class="btn btn-outline-primary">Pacientes</a>
-            <a href="{% url 'agendamentos_list' %}" class="btn btn-outline-secondary">Agendamentos</a>
-        </div>
-    </div>
+</div>
     {% else %}
 
-    <div style="padding:15px">
-        <div class="card mb-3 " style="max-width: 540px;">
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="{% static 'img/medical_logo.png' %}" class="img-fluid rounded-start p-3" alt="logo" width="180"
-                        height="180">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <div style="padding-left:85px;">
-                            <h5 class="card-title">MedicalSys</h5>
-                        </div>
-                        <p class="card-text">Esse sistema tem por objetivo realizar cadastro de pacientes e agendamentos
-                            de exames médicos.</p>
-                        <div class="d-grid gap-2 col-12 mx-auto">
-                            <a href="{% url 'login' %}" class="btn btn-primary ">Entrar</a>
+        <div class="home-center">
+            <div class="card shadow-lg" style="max-width: 600px;">
+                <div class="row g-0">
+                    <div class="col-md-4 d-flex justify-content-center align-items-center bg-light">
+                        <img src="{% static 'img/medical_logo.png' %}" 
+                             class="img-fluid p-3" 
+                             alt="logo" width="180" height="180">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-center">MedicalSys</h5>
+                            <p class="card-text text-center">
+                                Esse sistema realiza cadastro de pacientes e agendamentos de exames médicos.
+                            </p>
+                            <div class="d-grid">
+                                <a href="{% url 'login' %}" class="btn btn-primary">Entrar</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
     {% endif %}
 
@@ -75,10 +62,9 @@
 {% endblock %}
 
 {% block footer %}
-<footer class="footer">
+<footer class="footer bg-light shadow-sm">
     <div class="text-center">
         <span class="text-muted">Desenvolvimento Web com Django</span>
     </div>
-
 </footer>
 {% endblock %}

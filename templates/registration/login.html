@@ -7,36 +7,24 @@
 
 {% block main %}
 
-<style>
-    body {
-        background-image: url("{% static 'img/hospital.jpg' %}");
-        background-attachment: fixed;
-        background-size: cover;
-    }
-</style>
-
-<div style="padding-left:40px;" >
-<div style="padding-top:170px">
-
-    <div class="card mb-3 " style="max-width: 540px;">
+<section class="main-login">
+    <div class="card login-card mx-auto">
         <div class="row g-0">
-            <div class="col-md-4">
-                <img src="{% static 'img/medical_logo.png' %}" class="img-fluid rounded-start p-3" alt="logo" width="180"
+            <!-- Logo -->
+            <div class="col-md-4 login-logo">
+                <img src="{% static 'img/medical_logo.png' %}" class="img-fluid p-3" alt="logo" width="180"
                     height="180">
             </div>
+            
+            <!-- Formulário -->
             <div class="col-md-8">
-                <div class="card-body">
-                    <div style="padding-left:85px;">
-                    <h5 class="card-title">Login MedicalSys</h5>
-                    </div>
+                <div class="card-body login-body">
+                    <h5>Login MedicalSys</h5>
                     <form method="post">
                         {% csrf_token %}
                         {{ form|bootstrap }}
-                        <div style="padding-left:205px;">
+                        <div class="login-actions">
                             <a href="{% url 'cadastro' %}" class="btn btn-link">Cadastrar-se</a>
-                        </div>
-                        
-                        <div style="padding-left:125px">
                             <button type="submit" class="btn btn-primary">Login</button>
                         </div>
                     </form>
@@ -44,9 +32,7 @@
             </div>
         </div>
     </div>
-
-</div>
-</div>
+</section>
 
 {% endblock %}
 
@@ -55,7 +41,5 @@
     <div class="text-center">
         <span class="text-muted">Desenvolvimento Web com Django</span>
     </div>
-
 </footer>
-
 {% endblock %}

@@ -1,0 +1,104 @@
+/* Background */
+.person-list-container {
+    min-height: calc(100vh - 60px); /* considera footer */
+    padding: 30px 15px;
+    background-image: url("/static/img/hospital_2.jpg") no-repeat center center fixed;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+/* Título */
+.person-list-title {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Lista de pacientes */
+.person-list .list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 5px;
+}
+
+/* Ícones de ação */
+.person-actions a {
+    font-size: 1.1rem;
+    transition: transform 0.2s;
+}
+
+.person-actions a:hover {
+    transform: scale(1.2);
+}
+
+/* Botões de ação superior */
+.person-list-container .btn {
+    margin-right: 5px;
+}
+
+/* Container centralizado */
+.person-form-container {
+    max-width: 500px;           /* largura compacta */
+    margin: 20px auto;           /* centraliza horizontalmente e dá espaçamento vertical */
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9); /* fundo translúcido */
+    border-radius: 10px;
+}
+
+/* Card do formulário */
+.person-form-container .card {
+    padding: 15px;
+    border-radius: 10px;
+}
+
+/* Botões do formulário */
+.form-buttons .btn {
+    font-size: 0.85rem;
+    padding: 4px 10px;
+    margin: 0 5px;
+}
+
+/* Ajuste do título do card */
+.person-form-container .card-header {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Inputs e selects menores (opcional) */
+.person-form-container input,
+.person-form-container select,
+.person-form-container textarea {
+    font-size: 0.9rem;
+    padding: 6px 10px;
+}
+
+/* Container centralizado */
+.person-delete-container {
+    max-width: 500px;             /* largura compacta */
+    margin: 200px auto;            /* centraliza horizontalmente e dá espaçamento vertical */
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9); /* fundo translúcido */
+    border-radius: 10px;
+}
+
+/* Card */
+.person-delete-container .card {
+    padding: 15px;
+    border-radius: 10px;
+}
+
+/* Título do card */
+.person-delete-container .card-header h5 {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Botões centralizados e menores */
+.person-delete-container .form-buttons .btn {
+    font-size: 0.85rem;
+    padding: 4px 10px;
+    margin: 0 5px;
+}

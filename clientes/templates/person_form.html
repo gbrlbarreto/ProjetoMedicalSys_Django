@@ -16,24 +16,24 @@
     }
 </style>
 
-<p>
-<div class="card text-left">
-    <div class="card-header">
-        <b>Cadastro de Pacientes</b>
-    </div>
-    <div class="card-body">
-        <form method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            <!-- Proteção para não ser possível manipular formularios -->
-            {{ form|bootstrap }}
-            <!-- form é o formulario declarado em person_new -->
-            <br>
-            <button type="submit" class="btn btn-primary">Salvar</button>
-            <a href="{% url 'person_list' %}" class="btn btn-secondary">Cancelar</a>
-        </form>
+<div class="container person-form-container">
+
+    <div class="card shadow-sm">
+        <div class="card-header">
+            <b>Cadastro de Pacientes</b>
+        </div>
+        <div class="card-body">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form|bootstrap }}
+                <div class="form-buttons mt-3 text-center">
+                    <button type="submit" class="btn btn-primary btn-sm">Salvar</button>
+                    <a href="{% url 'person_list' %}" class="btn btn-secondary btn-sm">Cancelar</a>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
-
 <script src={% static 'jquery-3.6.0.min.js' %}></script>
 <script src={% static 'jquery.mask.min.js' %}></script>
 

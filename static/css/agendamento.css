@@ -1,0 +1,35 @@
+/* Container principal */
+.agendamento-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Cabeçalho */
+.agendamento-header h3 {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* Ações */
+.agendamento-actions .btn {
+    margin: 0 8px;
+}
+
+/* Card da tabela */
+.agendamento-card {
+    margin-top: 20px;
+    border-radius: 12px;
+}
+
+/* Tabela */
+.table th {
+    font-size: 0.95rem;
+    font-weight: bold;
+}
+.table td {
+    font-size: 0.9rem;
+}

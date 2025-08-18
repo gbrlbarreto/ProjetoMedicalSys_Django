@@ -1,0 +1,56 @@
+.page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Card */
+.card-cadastro {
+    display: flex;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    max-width: 700px;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Lado esquerdo (logo) */
+.card-left {
+    background: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    width: 35%;
+}
+
+.logo {
+    max-width: 150px;
+}
+
+/* Lado direito (formulário) */
+.card-right {
+    flex: 1;
+    padding: 40px;
+}
+
+.titulo {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Inputs */
+.form-control {
+    border-radius: 6px;
+    padding: 10px;
+}
+
+/* Botões */
+.botoes {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
