@@ -53,6 +53,17 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 
+8. Acesse o navegador:
+```bash
+http://127.0.0.1:8000
+```
+
+9. Dados para teste:
+```bash
+Username: admin
+Password: admin
+```
+
 ## ✨ Funcionalidades
 
 - 📋 Listagem de Agendamentos com status (Cancelado, A Confirmar, Confirmado, Finalizado)
@@ -74,4 +85,5 @@ python manage.py runserver
 - Módulo Médico (Create, Read, Update, Delete)
 - Módulo Paciente (Cliente) (Create, Read, Update, Delete)
 - Acesso aos dados através do Django RestFramework
+- Banco de dados SQLite
 - Disponibilidade do Swagger
