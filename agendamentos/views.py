@@ -18,6 +18,15 @@ def agendamentos_list(request):
     return render(request, 'agendamento.html', {'agendamentos': agendamentos})
 
 @login_required
+def agendamentos_arquivados(request):
+    agendamentos = (Agendamento.objects
+        .filter(arquivado=True)
+        .select_related('paciente')
+        .order_by('-data')
+    )
+    return render(request, 'agendamento_arquivado.html', {'agendamentos': agendamentos})
+
+@login_required
 def agendamentos_new(request):
     form = AgendamentoForm(request.POST or None, request.FILES or None)
 
@@ -25,7 +34,6 @@ def agendamentos_new(request):
         form.save()
         return redirect('agendamentos_list')
     return render(request, 'agendamentos_form.html', {'form': form})
-
 
 @login_required
 def agendamentos_update(request, id):
@@ -51,3 +59,12 @@ def agendamentos_delete(request, id):
         return redirect('agendamentos_list')
     
     return render(request, 'agendamentos_delete_confirm.html', {'agendamento': agendamento})
+
+@login_required
+def agendamentos_desarquivar(request, id):
+    agendamento = get_object_or_404(Agendamento, pk=id)
+    if request.method == 'POST':
+        agendamento.arquivado = False
+        agendamento.save()
+        return redirect('agendamentos_arquivados')
+    return render(request, 'agendamentos_desarquivar_confirm.html', {'agendamento': agendamento})

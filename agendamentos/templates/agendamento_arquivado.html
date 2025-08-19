@@ -20,7 +20,7 @@
         <div class="col-4">
         </div>
         <div class="col-4 text-center">
-            <h3 class="person-list-title">Lista de Agendamentos</h3>
+            <h3 class="person-list-title">Lista de Agendamentos Arquivados</h3>
         </div>
         <div class="col-4 text-end">
             {% if user.is_authenticated %}
@@ -37,10 +37,7 @@
         <a href="{% url 'agendamentos_new' %}" class="btn btn-primary btn-sm">
             <i class="bi bi-plus-circle"></i> Novo agendamento
         </a>
-        <a href="{% url 'agendamentos_arquivados' %}" class="btn btn-secondary btn-sm">
-            <i class="bi bi-archive-fill"></i> Agendamentos arquivados
-        </a>
-        <a href="{% url 'home' %}" class="btn btn-secondary btn-sm">
+        <a href="{% url 'agendamentos_list' %}" class="btn btn-secondary btn-sm">
             <i class="bi bi-arrow-left-circle"></i> Voltar
         </a>
     </div>
@@ -61,17 +58,15 @@
                 </thead>
                 <tbody>
                 {% for agendamento in agendamentos %}
-                    {% if not agendamento.arquivado %}
+                    {% if agendamento.arquivado %}
                         <tr>
                             <td>{{ agendamento.id }}</td>
                             <td>{{ agendamento.paciente.nome }}</td>
                             <td>{{ agendamento.data|date:"d/m/Y" }} às {{ agendamento.hora|time:"H:i" }}</td>
                             <td>Dr. {{ agendamento.medico }}</td>
                             <td>
-                                {% if agendamento.status == "Cancelado" %}
+                                {% if agendamento.status == "A Confirmar" %}
                                     <span class="badge bg-danger">{{ agendamento.status }}</span>
-                                {% elif agendamento.status == "A Confirmar" %}
-                                    <span class="badge bg-warning">{{ agendamento.status }}</span>
                                 {% elif agendamento.status == "Confirmado" %}
                                     <span class="badge bg-success">{{ agendamento.status }}</span>
                                 {% elif agendamento.status == "Finalizado" %}
@@ -85,9 +80,9 @@
                                 </a>
                             </td>
                             <td>
-                                <a href="{% url 'agendamentos_delete' agendamento.id %}" 
-                                   class="text-danger" title="Arquivar">
-                                    <i class="bi bi-archive-fill"></i>
+                                <a href="{% url 'agendamentos_desarquivar' agendamento.id %}" 
+                                   class="text-primary" title="Desarquivar">
+                                    <i class="bi bi-plus-circle-fill"></i>
                                 </a>
                             </td>
                         </tr>
