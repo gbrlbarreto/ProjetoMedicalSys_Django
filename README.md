@@ -5,7 +5,7 @@ O sistema foi criado para facilitar o controle de consultas, oferecendo funciona
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-- [Python 3.9](https://www.python.org/)
+- [Python 3.9.0](https://www.python.org/)
 - [HTML](#)
 - [CSS](#)
 - [JavaScript](#)
