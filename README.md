@@ -1,17 +1,20 @@
 ### Projeto Desafio Django - Medical
 
+Este projeto é uma aplicação web desenvolvida em Django para gerenciamento de agendamentos médicos, gerenciamento de pacientes e também gerenciamento de médicos.
+O sistema foi criado para facilitar o controle de consultas, oferecendo funcionalidades de cadastro, edição, arquivamento e desarquivamento de agendamentos de forma simples e intuitiva.
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-- [Python](https://www.python.org/)
+- [Python 3.9](https://www.python.org/)
+- [HTML](#)
+- [CSS](#)
 - [JavaScript](#)
-- [Html](#)
-- [Css](#)
-- [Django](https://www.djangoproject.com/)
-- [Bootstrap](https://facebook.github.io/react-native/)
+- [Django Framework](https://www.djangoproject.com/)
+- [Bootstrap](https://getbootstrap.com/)
 - [ViaCEP](https://viacep.com.br/)
 - [Select2](https://select2.org/)
 - [JQuery](https://jquery.com/)
+- [SQLite](https://sqlite.org/)
 
 ## Instalação
 
@@ -49,6 +52,18 @@ python manage.py createsuperuser
 ```bash
 python manage.py runserver
 ```
+
+## ✨ Funcionalidades
+
+- 📋 Listagem de Agendamentos com status (Cancelado, A Confirmar, Confirmado, Finalizado)
+- ➕ Cadastro de novos pacientes com informações completas
+- ➕ Cadastro de novos médicos
+- ➕ Cadastro de novos agendamentos com paciente, médico e data e hora do agendamento
+- ✏️ Edição de agendamentos existentes
+- 🗄️ Arquivamento e desarquivamento de agendamentos existentes
+- 🔐 Autenticação de usuários (login/logout e saudação personalizada)
+- 🎨 Interface estilizada com Bootstrap e imagens de fundo personalizadas
+- 📊 Controle visual por badges para facilitar a identificação do status das consultas
 
 ## 🔖 Implementações
 
