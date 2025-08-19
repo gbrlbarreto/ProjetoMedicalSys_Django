@@ -64,6 +64,16 @@ Username: admin
 Password: admin
 ```
 
+## 🌐 Acesso Online
+
+O projeto está hospedado e pode ser acessado pelo link abaixo:
+
+🔗 [Acesse o MedicalSys Django Online](https://gbrlbarreto7272.pythonanywhere.com/)
+
+> Obs: É recomendado usar os dados de teste para login:
+> - Username: admin
+> - Password: admin
+
 ## ✨ Funcionalidades
 
 - 📋 Listagem de Agendamentos com status (Cancelado, A Confirmar, Confirmado, Finalizado)
