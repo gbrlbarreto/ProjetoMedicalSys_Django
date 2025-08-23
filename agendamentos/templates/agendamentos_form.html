@@ -46,8 +46,11 @@
                 </div>
                 
                 <div class="mb-3">
-                    <label class="form-label-ag-form">Valor Pago (R$)</label>
-                    {{ form.valor_pago }}
+                    <label class="form-label-ag-form">Valor Pago</label>
+                    <div class="input-group">
+                        <span class="input-group-text">R$</span>
+                        {{ form.valor_pago }}
+                    </div>
                 </div>
 
                 <div class="mb-3">
