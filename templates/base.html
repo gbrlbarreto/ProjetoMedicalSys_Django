@@ -23,12 +23,13 @@
 
 </head>
 <body>
-    
-    {% block main %}
-    {% endblock %}
+    <div class="page-wrapper">
 
-    {% block footer %}
-    {% endblock %}
-    
+        <main>
+            {% block main %}{% endblock %}
+        </main>
+
+        {% block footer %}{% endblock %}
+    </div>
 </body>
 </html>
