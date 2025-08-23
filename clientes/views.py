@@ -7,7 +7,7 @@ from .forms import PersonForm
 # Create your views here.
 @login_required
 def persons_list(request): #toda função deve retornar um request
-    persons = Person.objects.all() #buscar todos os dados do banco de dados
+    persons = Person.objects.all().order_by('nome') #buscar todos os dados do banco de dados
     return render(request, 'person.html', {'persons': persons})
 
 
