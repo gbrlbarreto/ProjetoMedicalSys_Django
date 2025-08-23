@@ -13,7 +13,7 @@ def agendamentos_list(request):
     agendamentos = (Agendamento.objects
         .filter(arquivado=False)   # apenas não arquivados
         .select_related('paciente')  # otimiza consulta
-        .order_by('-data')  # mais recentes primeiro (opcional)
+        .order_by('-data', '-hora')  # mais recentes primeiro
     )
     return render(request, 'agendamento.html', {'agendamentos': agendamentos})
 
@@ -22,7 +22,7 @@ def agendamentos_arquivados(request):
     agendamentos = (Agendamento.objects
         .filter(arquivado=True)
         .select_related('paciente')
-        .order_by('-data')
+        .order_by('-data', '-hora')
     )
     return render(request, 'agendamento_arquivado.html', {'agendamentos': agendamentos})
 
