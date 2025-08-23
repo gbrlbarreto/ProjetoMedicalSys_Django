@@ -19,6 +19,7 @@ class Agendamento(models.Model):
     status = models.CharField(max_length=12, choices=STATUS_CHOICES)
     medico = models.ForeignKey(User, on_delete=models.CASCADE)
     paciente = models.ForeignKey(Person, on_delete=models.CASCADE)
+    valor_pago = models.DecimalField(max_digits=8, decimal_places=2, default=0, null=False, blank=False, verbose_name='Valor Pago')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     

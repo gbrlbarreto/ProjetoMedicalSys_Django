@@ -54,6 +54,7 @@
                         <th>ID</th>
                         <th>Nome do Paciente</th>
                         <th>Data e Hora Agendada</th>
+                        <th>Valor Pago (R$)</th>
                         <th>Médico</th>
                         <th>Status</th>
                         <th colspan="2">Ações</th>
@@ -66,6 +67,7 @@
                             <td>{{ agendamento.id }}</td>
                             <td>{{ agendamento.paciente.nome }}</td>
                             <td>{{ agendamento.data|date:"d/m/Y" }} às {{ agendamento.hora|time:"H:i" }}</td>
+                            <td>R$ {{ agendamento.valor_pago|default:"-" }}</td>
                             <td>Dr. {{ agendamento.medico }}</td>
                             <td>
                                 {% if agendamento.status == "Cancelado" %}
