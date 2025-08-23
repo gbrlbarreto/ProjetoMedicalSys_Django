@@ -82,7 +82,6 @@ def agendamentos_update(request, id):
 @login_required
 def agendamentos_delete(request, id):
     agendamento = get_object_or_404(Agendamento, pk=id)
-    form = AgendamentoForm(request.POST or None, request.FILES or None, instance=agendamento)
 
     if request.method == 'POST':
         #agendamento.delete()
