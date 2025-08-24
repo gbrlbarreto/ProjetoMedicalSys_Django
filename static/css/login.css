@@ -42,3 +42,9 @@
   align-items: center;
   margin-top: .75rem;
 }
+
+/* Labels dos campos */
+.form-label-login-form {
+    font-weight: 600;
+    margin-top: 10px;
+}

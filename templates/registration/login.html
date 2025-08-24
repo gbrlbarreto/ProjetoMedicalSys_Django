@@ -15,14 +15,47 @@
                 <img src="{% static 'img/medical_logo.png' %}" class="img-fluid p-3" alt="logo" width="180"
                     height="180">
             </div>
-            
+
             <!-- Formulário -->
             <div class="col-md-8">
                 <div class="card-body login-body">
                     <h5>Login MedicalSys</h5>
-                    <form method="post">
+                    <form method="post" novalidate>
                         {% csrf_token %}
-                        {{ form|bootstrap }}
+                        <!-- {{ form|bootstrap }} -->
+                          
+                        {% if form.non_field_errors %}
+                        <div class="alert alert-danger">
+                            {% for error in form.non_field_errors %}
+                            {{ error }}
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+
+                        <div class="mb-3">
+                            <label for="id_username" class="form-label-login-form">Email</label>
+                            {{ form.username }}
+                            {% if form.username.errors %}
+                            <div class="text-danger">
+                                {% for error in form.username.errors %}
+                                {{ error }}
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="id_password" class="form-label-login-form">Senha</label>
+                            {{ form.password }}
+                            {% if form.password.errors %}
+                            <div class="text-danger">
+                                {% for error in form.password.errors %}
+                                {{ error }}
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                        </div>
+
                         <div class="login-actions">
                             <a href="{% url 'cadastro' %}" class="btn btn-link">Cadastrar-se</a>
                             <button type="submit" class="btn btn-primary">Login</button>

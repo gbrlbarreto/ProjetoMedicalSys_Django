@@ -26,6 +26,7 @@ from medicos.api import urls as medicos_urls_rest
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
+from home.views import CustomLoginView
 
 urlpatterns = [
     path('', include(home_urls)),
@@ -37,7 +38,7 @@ urlpatterns = [
     path('api/agendamentos', include(agendamentos_urls_rest)),
     path('api/clientes', include(clientes_urls_rest)),
     path('api/medicos', include(medicos_urls_rest)),
-    path('login/', auth_views.LoginView.as_view(), name='login'),
+    path('login/', CustomLoginView.as_view(), name='login'),
     path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
