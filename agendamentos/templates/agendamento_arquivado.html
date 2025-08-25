@@ -16,13 +16,13 @@
 <div class="container person-list-container">
 
     <!-- Header -->
-    <div class="row align-items-center mb-4" style="margin-top: 0;">
+    <div class="row align-items-center mb-4">
         <div class="col-4">
         </div>
         <div class="col-4 text-center">
             <h3 class="person-list-title">Lista de Agendamentos Arquivados</h3>
         </div>
-        <div class="col-4 text-end">
+        <div class="col-4 text-end home-actions">
             {% if user.is_authenticated %}
                 <span class="fw-bold">Olá, {{ user.first_name }} {{ user.last_name }}</span>
                 <a href="{% url 'logout' %}" class="btn btn-danger logout-btn">
@@ -43,7 +43,7 @@
     </div>
 
     <!-- Campo de busca -->
-    <form method="get" class="mb-4 text-center">
+    <form method="get" class="mb-4 text-center agendamento-actions">
         <input type="text" name="busca" class="form-control w-50 d-inline"
             placeholder="Buscar por paciente, data ou status..." value="{{ request.GET.busca }}">
         <button type="submit" class="btn btn-primary btn-sm mt-2">Buscar</button>

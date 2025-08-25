@@ -27,12 +27,15 @@
 
 /* Ícones de ação */
 .person-actions a {
-    font-size: 1.1rem;
     transition: transform 0.2s;
 }
 
 .person-actions a:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
+}
+
+.person-actions .btn {
+    margin: 0 8px;
 }
 
 /* Botões de ação superior */

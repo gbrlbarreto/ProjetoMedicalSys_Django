@@ -1,0 +1,11 @@
+/* Botões */
+.btn-person-form {
+    min-width: 120px;
+    margin: 0 8px;
+}
+
+/* Container de botões */
+.btn-container-person-form {
+    text-align: center;
+    margin-top: 20px;
+}

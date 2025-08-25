@@ -23,6 +23,14 @@ main {
     flex: 1;
 }
 
+.home-actions a, .home-actions button {
+    transition: transform 0.2s;
+}
+
+.home-actions a:hover, .home-actions button:hover {
+    transform: scale(1.05);
+}
+
 .logout-btn i {
     margin-left: 5px; /* separa ícone do texto */
 }

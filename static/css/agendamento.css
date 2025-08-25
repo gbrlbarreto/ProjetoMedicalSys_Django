@@ -14,7 +14,15 @@
     font-weight: bold;
 }
 
-/* Ações */
+/* Ícones de ação */
+.agendamento-actions a, .agendamento-actions button {
+    transition: transform 0.2s;
+}
+
+.agendamento-actions a:hover, .agendamento-actions button:hover {
+    transform: scale(1.1);
+}
+
 .agendamento-actions .btn {
     margin: 0 8px;
 }

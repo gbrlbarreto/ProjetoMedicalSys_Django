@@ -9,7 +9,7 @@
 
 <div>
     {% if user.is_authenticated %}
-<div class="container mt-4">
+<div class="container mt-4 home-actions">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <span class="fw-bold fs-5">Olá, {{ user.first_name }} {{ user.last_name }}</span>
         <a href="{% url 'logout' %}" class="btn btn-danger logout-btn">Sair<i class="bi bi-box-arrow-right"></i></a>
@@ -22,7 +22,7 @@
             </div>
             <div class="card-body">
                 <h5 class="card-title mb-4">Escolha a funcionalidade:</h5>
-                <div class="d-grid gap-3">
+                <div class="d-grid gap-3 home-actions">
                     <a href="{% url 'person_list' %}" class="btn btn-outline-primary">Pacientes</a>
                     <a href="{% url 'agendamentos_list' %}" class="btn btn-outline-secondary">Agendamentos</a>
                 </div>
