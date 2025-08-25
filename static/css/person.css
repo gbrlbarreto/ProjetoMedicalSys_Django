@@ -26,16 +26,25 @@
 }
 
 /* Ícones de ação */
-.person-actions a {
+.person-actions a, .person-actions button {
     transition: transform 0.2s;
 }
 
-.person-actions a:hover {
+.person-actions a:hover, .person-actions button:hover {
     transform: scale(1.1);
 }
 
 .person-actions .btn {
     margin: 0 8px;
+}
+
+.person-actions a i {
+    display: inline-block;
+    transition: transform 0.2s ease-in-out;
+}
+
+.person-actions a:hover i {
+    transform: scale(1.15);
 }
 
 /* Botões de ação superior */

@@ -81,16 +81,20 @@
                                 {% endif %}
                             </td>
                             <td>
+                                <div class="agendamento-actions">
                                 <a href="{% url 'agendamentos_update' agendamento.id %}" 
                                    class="text-primary" title="Editar">
                                     <i class="bi bi-pencil-square"></i>
                                 </a>
+                                </div>
                             </td>
                             <td>
+                                <div class="agendamento-actions">
                                 <a href="{% url 'agendamentos_desarquivar' agendamento.id %}" 
                                    class="text-primary" title="Desarquivar">
                                     <i class="bi bi-plus-circle-fill"></i>
                                 </a>
+                                </div>
                             </td>
                         </tr>
                     {% endif %}

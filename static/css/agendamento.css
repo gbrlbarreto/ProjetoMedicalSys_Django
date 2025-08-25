@@ -27,6 +27,15 @@
     margin: 0 8px;
 }
 
+.agendamento-actions a i {
+    display: inline-block;
+    transition: transform 0.2s ease-in-out;
+}
+
+.agendamento-actions a:hover i {
+    transform: scale(1.15);
+}
+
 /* Card da tabela */
 .agendamento-card {
     margin-top: 20px;

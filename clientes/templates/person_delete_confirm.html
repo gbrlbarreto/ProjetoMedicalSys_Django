@@ -22,7 +22,7 @@
             <p class="card-text">Tem certeza que deseja deletar o paciente <b>{{ person.nome }}</b>?</p>
             <form method="POST">
                 {% csrf_token %}
-                <div class="form-buttons mt-3">
+                <div class="form-buttons mt-3 person-actions">
                     <button type="submit" class="btn btn-danger btn-sm">Deletar</button>
                     <a href="{% url 'person_list' %}" class="btn btn-secondary btn-sm">Voltar</a>
                 </div>

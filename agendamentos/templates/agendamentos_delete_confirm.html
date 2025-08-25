@@ -19,14 +19,14 @@
             Arquivamento de Agendamento
         </div>
         <p class="text-center">Tem certeza que deseja arquivar o agendamento do paciente <b>{{ agendamento.paciente.nome }}</b>?</p>
-        <div class="btn-container-ag-delete">
+        <div class="btn-container-ag-delete agendamento-actions">
             <form method="POST">
                 {% csrf_token %}
-                <button type="submit" class="btn btn-danger">
+                <button type="submit" class="btn btn-danger" style="margin: 0px">
                     <i class="bi bi-archive-fill"></i> Arquivar
                 </button>
             </form>
-            <a href="{% url 'agendamentos_list' %}" class="btn btn-secondary">
+            <a href="{% url 'agendamentos_list' %}" class="btn btn-secondary" style="margin: 0px">
                 <i class="bi bi-x-circle"></i> Voltar
             </a>
         </div>

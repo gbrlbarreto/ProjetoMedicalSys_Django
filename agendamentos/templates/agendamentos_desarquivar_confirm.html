@@ -19,14 +19,14 @@
             Desarquivamento de Agendamento
         </div>
         <p class="text-center">Tem certeza que deseja desarquivar o agendamento do paciente <b>{{ agendamento.paciente.nome }}</b>?</p>
-        <div class="btn-container-ag-delete">
+        <div class="btn-container-ag-delete agendamento-actions">
             <form method="POST">
                 {% csrf_token %}
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-primary" style="margin: 0px">
                     <i class="bi bi-archive-fill"></i> Desarquivar
                 </button>
             </form>
-            <a href="{% url 'agendamentos_arquivados' %}" class="btn btn-secondary">
+            <a href="{% url 'agendamentos_arquivados' %}" class="btn btn-secondary" style="margin: 0px">
                 <i class="bi bi-x-circle"></i> Voltar
             </a>
         </div>
