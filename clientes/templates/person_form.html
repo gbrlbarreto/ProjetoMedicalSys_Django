@@ -25,10 +25,64 @@
         <div class="card-body">
             <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
-                {{ form|bootstrap }}
-                <div class="form-buttons mt-3 text-center">
-                    <button type="submit" class="btn btn-primary btn-sm">Salvar</button>
-                    <a href="{% url 'person_list' %}" class="btn btn-secondary btn-sm">Cancelar</a>
+                
+                <div class="mb-3">
+                    <label class="form-label-ag-form">Nome</label>
+                    {{ form.nome }}
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label-ag-form">Telefone</label>
+                    {{ form.telefone }}
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label-ag-form">CEP</label>
+                    {{ form.cep }}
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label-ag-form">Rua</label>
+                    {{ form.rua }}
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label-ag-form">Número</label>
+                    {{ form.numero }}
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label-ag-form">Complemento</label>
+                    {{ form.complemento }}
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label-ag-form">Bairro</label>
+                    {{ form.bairro }}
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label-ag-form">Cidade</label>
+                    {{ form.cidade }}
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label-ag-form">Estado</label>
+                    {{ form.estado }}
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label-ag-form">País</label>
+                    {{ form.país }}
+                </div>
+
+                <div class="btn-container-person-form">
+                    <button type="submit" class="btn btn-primary btn-person-form">
+                        <i class="bi bi-check-circle"></i> Salvar
+                    </button>
+                    <a href="{% url 'person_list' %}" class="btn btn-secondary btn-person-form">
+                        <i class="bi bi-x-circle"></i> Cancelar
+                    </a>
                 </div>
             </form>
         </div>
