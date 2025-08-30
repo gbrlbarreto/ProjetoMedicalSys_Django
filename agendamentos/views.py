@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Agendamento
 from .forms import AgendamentoForm
 from django.db.models import Q
+from django.contrib import messages
 
 #@login_required
 #def agendamentos_list(request): #toda função deve retornar um request
@@ -64,6 +65,7 @@ def agendamentos_new(request):
 
     if form.is_valid():
         form.save()
+        messages.success(request, 'Agendamento criado com sucesso!')
         return redirect('agendamentos_list')
     return render(request, 'agendamentos_form.html', {'form': form})
 
@@ -74,6 +76,7 @@ def agendamentos_update(request, id):
 
     if form.is_valid():
         form.save()
+        messages.success(request, 'Agendamento atualizado com sucesso!')
         return redirect('agendamentos_list')
     
     return render(request, 'agendamentos_form.html', {'form': form})
@@ -87,6 +90,7 @@ def agendamentos_delete(request, id):
         #agendamento.delete()
         agendamento.arquivado = True
         agendamento.save()
+        messages.success(request, 'Agendamento arquivado com sucesso!')
         return redirect('agendamentos_list')
     
     return render(request, 'agendamentos_delete_confirm.html', {'agendamento': agendamento})
@@ -97,5 +101,6 @@ def agendamentos_desarquivar(request, id):
     if request.method == 'POST':
         agendamento.arquivado = False
         agendamento.save()
+        messages.success(request, 'Agendamento desarquivado com sucesso!')
         return redirect('agendamentos_arquivados')
     return render(request, 'agendamentos_desarquivar_confirm.html', {'agendamento': agendamento})

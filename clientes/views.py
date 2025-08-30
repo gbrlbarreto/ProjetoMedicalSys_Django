@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Person
 from .forms import PersonForm
-
+from django.contrib import messages
 
 # Create your views here.
 @login_required
@@ -17,6 +17,7 @@ def persons_new(request):
 
     if form.is_valid():
         form.save()
+        messages.success(request, 'Cliente cadastrado com sucesso!')
         return redirect('person_list')
     return render(request, 'person_form.html', {'form': form})
 
@@ -28,6 +29,7 @@ def persons_update(request, id):
 
     if form.is_valid():
         form.save()
+        messages.success(request, 'Cliente atualizado com sucesso!')
         return redirect('person_list')
     
     return render(request, 'person_form.html', {'form': form})
@@ -40,6 +42,7 @@ def persons_delete(request, id):
 
     if request.method == 'POST':
         person.delete()
+        messages.success(request, 'Cliente deletado com sucesso!')
         return redirect('person_list')
     
     return render(request, 'person_delete_confirm.html', {'person': person})

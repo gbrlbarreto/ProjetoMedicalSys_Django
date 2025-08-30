@@ -88,9 +88,13 @@
         </div>
     </div>
 </div>
-<script src={% static 'jquery-3.6.0.min.js' %}></script>
-<script src={% static 'jquery.mask.min.js' %}></script>
 
+{% endblock %}
+
+<!-- <script src={% static 'jquery-3.6.0.min.js' %}></script> -->
+<!-- <script src={% static 'jquery.mask.min.js' %}></script> -->
+
+{% block page_scripts %}
 <script>
     $(document).ready(function () {
         $('#id_telefone').mask('(00) 00000-0000');
@@ -159,5 +163,4 @@
     let el = document.getElementById("id_cep");
     el.addEventListener("blur", () => pesquisacep((() => document.getElementById("id_cep").value)()), false)
 </script>
-
 {% endblock %}
