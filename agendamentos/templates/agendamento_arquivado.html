@@ -72,8 +72,10 @@
                             <td>{{ agendamento.data|date:"d/m/Y" }} às {{ agendamento.hora|time:"H:i" }}</td>
                             <td>Dr. {{ agendamento.medico }}</td>
                             <td>
-                                {% if agendamento.status == "A Confirmar" %}
+                                {% if agendamento.status == "Cancelado" %}
                                     <span class="badge bg-danger">{{ agendamento.status }}</span>
+                                {% elif agendamento.status == "A Confirmar" %}
+                                    <span class="badge bg-warning">{{ agendamento.status }}</span>
                                 {% elif agendamento.status == "Confirmado" %}
                                     <span class="badge bg-success">{{ agendamento.status }}</span>
                                 {% elif agendamento.status == "Finalizado" %}
