@@ -1,5 +1,7 @@
 from django.urls import path
 from .views import agendamentos_list
+from .views import agendamentos_json
+from .views import agendamentos_calendar
 from .views import agendamentos_new
 from .views import agendamentos_update
 from .views import agendamentos_delete
@@ -14,4 +16,6 @@ urlpatterns = [
     path('delete/<int:id>/', agendamentos_delete, name="agendamentos_delete"),
     path('arquivados/', agendamentos_arquivados, name="agendamentos_arquivados"),
     path('desarquivar/<int:id>/', agendamentos_desarquivar, name="agendamentos_desarquivar"),
+    path('calendario/', agendamentos_calendar, name='agendamentos_calendar'),
+    path('json/', agendamentos_json, name='agendamentos_json'),
 ]

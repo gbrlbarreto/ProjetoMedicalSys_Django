@@ -5,6 +5,7 @@ from .models import Agendamento
 from .forms import AgendamentoForm
 from django.db.models import Q
 from django.contrib import messages
+from django.http import JsonResponse
 
 #@login_required
 #def agendamentos_list(request): #toda função deve retornar um request
@@ -19,6 +20,26 @@ from django.contrib import messages
 #        .order_by('data', 'hora')  # mais recentes primeiro
 #    )
 #    return render(request, 'agendamento.html', {'agendamentos': agendamentos})
+
+@login_required
+def agendamentos_json(request):
+    agendamentos = Agendamento.objects.filter(arquivado=False)
+    eventos = []
+
+    for ag in agendamentos:
+        eventos.append({
+            'id': ag.id,
+            'title': f"{ag.paciente.nome}",
+            'start': f"{ag.data}T{ag.hora.strftime('%H:%M:%S') if ag.hora else '00:00:00'}",
+            'description': ag.descricao,
+            #'status': ag.status,
+        })
+
+    return JsonResponse(eventos, safe=False)
+
+@login_required
+def agendamentos_calendar(request):
+    return render(request, 'agendamentos_calendar.html')
 
 @login_required
 def agendamentos_list(request):

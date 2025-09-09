@@ -1,0 +1,162 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Calendário de Agendamentos{% endblock %}
+
+{% block main %}
+
+<style>
+    body {
+        background-image: url("{% static 'img/hospital_4.jpg' %}");
+        background-attachment: fixed;
+        background-size: cover;
+    }
+
+    #calendar {
+        max-width: 1100px;
+        margin: 40px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 6px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .fc-event {
+        cursor: pointer;
+    }
+
+    .fc-daygrid-day-number {
+        text-decoration: none;
+        cursor: pointer;
+    }
+    
+    .fc-daygrid-day-number:hover {
+        text-decoration: underline; 
+    }
+</style>
+
+<div class="container person-list-container">
+
+    <!-- Header -->
+    <div class="row align-items-center mb-4">
+        <div class="col-4">
+        </div>
+        <div class="col-4 text-center">
+            <h3 class="person-list-title">Calendário de Agendamentos</h3>
+        </div>
+        <div class="col-4 text-end home-actions">
+            {% if user.is_authenticated %}
+                <span class="fw-bold">Olá, {{ user.first_name }} {{ user.last_name }}</span>
+                <a href="{% url 'logout' %}" class="btn btn-danger logout-btn">
+                    Sair <i class="bi bi-box-arrow-right"></i>
+                </a>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Botões de ação -->
+    <div class="agendamento-actions text-center mt-4 mb-3">
+        <a href="{% url 'agendamentos_new' %}" class="btn btn-primary btn-sm">
+            <i class="bi bi-plus-circle"></i> Novo agendamento
+        </a>
+        <a href="{% url 'agendamentos_list' %}" class="btn btn-secondary btn-sm">
+            <i class="bi bi-arrow-left-circle"></i> Voltar
+        </a>
+    </div>
+
+    <!-- Calendário -->
+    <div id='calendar'></div>
+
+</div>
+
+{% endblock %}
+
+{% block footer %}
+<footer class="footer">
+    <div class="text-center">
+        <span class="text-muted">Desenvolvimento Web com Django</span>
+    </div>
+</footer>
+{% endblock %}
+
+{% block page_scripts %}
+<script src="{% static 'fullcalendar/packages/core/index.global.js' %}"></script>
+<script src="{% static 'fullcalendar/packages/daygrid/index.global.js' %}"></script>
+<script src="{% static 'fullcalendar/packages/timegrid/index.global.js' %}"></script>
+<script src="{% static 'fullcalendar/packages/list/index.global.js' %}"></script>
+<script src="{% static 'fullcalendar/packages/core/locales/pt-br.global.min.js' %}"></script>
+
+<!-- Bootstrap JS (para tooltips funcionarem) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    function ajustarTooltipsDosBotoes() {
+
+        // Seleciona os botões e aplica os tooltips com base nas classes padrão
+        document.querySelectorAll('.fc-dayGridMonth-button').forEach(botao => {
+            botao.setAttribute('title', 'Visualizar por mês');
+        });
+
+        document.querySelectorAll('.fc-timeGridWeek-button').forEach(botao => {
+            botao.setAttribute('title', 'Visualizar por semana');
+        });
+
+        document.querySelectorAll('.fc-timeGridDay-button').forEach(botao => {
+            botao.setAttribute('title', 'Visualizar por dia');
+        });
+
+        document.querySelectorAll('.fc-listWeek-button').forEach(botao => {
+            botao.setAttribute('title', 'Visualizar por lista');
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var calendarEl = document.getElementById('calendar');
+
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            locale: 'pt-br',
+            timeZone: 'local',
+            buttonIcons: false, //Define icone ou texto
+            weekNumbers: true, //Exibe a semana na lateral
+            navLinks: true, //Permite clicar no dia ou semana
+            allDayText: 'Dia inteiro',
+            noEventsText: 'Nenhum agendamento marcado',
+            dayMaxEvents: true,
+            eventTimeFormat: {
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: false
+            },
+            moreLinkText: function (n) {
+                return `mais +${n}`;
+            },
+            moreLinkDidMount: function (info) {
+                const match = info.el.innerText.match(/\+(\d+)/);
+                if (match) {
+                    const quantidade = match[1];
+                    info.el.setAttribute('title', `Mostrar mais ${quantidade} agendamentos`);
+                }
+            },
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+            },
+            events: '{% url "agendamentos_json" %}',  // JSON com os agendamentos
+
+            // Tooltip
+            eventDidMount: function (info) {
+                new bootstrap.Tooltip(info.el, {
+                    title: info.event.extendedProps.description,
+                    placement: 'top',
+                    trigger: 'hover',
+                    container: 'body'
+                });
+            }
+        });
+        calendar.render();
+        ajustarTooltipsDosBotoes();
+    });
+</script>
+{% endblock %}

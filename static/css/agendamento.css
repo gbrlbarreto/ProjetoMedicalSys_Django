@@ -50,3 +50,15 @@
 .table td {
     font-size: 0.9rem;
 }
+
+.btn-calendario {
+    background-color: #3788d8;
+    border-color: #3788d8;
+    color: white;
+}
+
+.btn-calendario:hover {
+    background-color: #1a7ada;
+    border-color: #1a7ada;
+    color: white;
+}
