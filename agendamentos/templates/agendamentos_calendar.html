@@ -89,27 +89,32 @@
 <!-- Bootstrap JS (para tooltips funcionarem) -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 
+<!-- Tippy -->
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/scale.css" />
+
 <script>
-    function ajustarTooltipsDosBotoes() {
-
-        // Seleciona os botões e aplica os tooltips com base nas classes padrão
-        document.querySelectorAll('.fc-dayGridMonth-button').forEach(botao => {
-            botao.setAttribute('title', 'Visualizar por mês');
-        });
-
-        document.querySelectorAll('.fc-timeGridWeek-button').forEach(botao => {
-            botao.setAttribute('title', 'Visualizar por semana');
-        });
-
-        document.querySelectorAll('.fc-timeGridDay-button').forEach(botao => {
-            botao.setAttribute('title', 'Visualizar por dia');
-        });
-
-        document.querySelectorAll('.fc-listWeek-button').forEach(botao => {
-            botao.setAttribute('title', 'Visualizar por lista');
-        });
-    }
-
+//    function ajustarTooltipsDosBotoes() {
+//
+//        // Seleciona os botões e aplica os tooltips com base nas classes padrão
+//        document.querySelectorAll('.fc-dayGridMonth-button').forEach(botao => {
+//            botao.setAttribute('title', 'Visualizar por mês');
+//        });
+//
+//        document.querySelectorAll('.fc-timeGridWeek-button').forEach(botao => {
+//            botao.setAttribute('title', 'Visualizar por semana');
+//        });
+//
+//        document.querySelectorAll('.fc-timeGridDay-button').forEach(botao => {
+//            botao.setAttribute('title', 'Visualizar por dia');
+//        });
+//
+//        document.querySelectorAll('.fc-listWeek-button').forEach(botao => {
+//            botao.setAttribute('title', 'Visualizar por lista');
+//        });
+//    }
+    
     document.addEventListener('DOMContentLoaded', function () {
         var calendarEl = document.getElementById('calendar');
 
@@ -145,18 +150,68 @@
             },
             events: '{% url "agendamentos_json" %}',  // JSON com os agendamentos
 
+//            eventDidMount: function (info) {
+//                new bootstrap.Tooltip(info.el, {
+//                    title: info.event.extendedProps.description,
+//                    placement: 'top',
+//                    trigger: 'hover',
+//                    container: 'body'
+//                });
+//            }
+
             // Tooltip
             eventDidMount: function (info) {
-                new bootstrap.Tooltip(info.el, {
-                    title: info.event.extendedProps.description,
+                info.el.setAttribute('data-description', info.event.extendedProps.description || 'Sem descrição');
+                if (info.el._tippy) {
+                    info.el._tippy.destroy();
+                }
+                tippy(info.el, {
+                    content: info.event.extendedProps.description || 'Sem descrição',
                     placement: 'top',
-                    trigger: 'hover',
-                    container: 'body'
+                    animation: 'scale',
+                    arrow: true,
+                    delay: [100, 100],
+                    theme: 'light-border',
                 });
             }
         });
         calendar.render();
-        ajustarTooltipsDosBotoes();
+//        ajustarTooltipsDosBotoes();
+
+        ['dayGridMonth', 'timeGridWeek', 'timeGridDay', 'listWeek'].forEach(viewClass => {
+            document.querySelectorAll(`.fc-${viewClass}-button`).forEach(botao => {
+                let title = '';
+                switch (viewClass) {
+                    case 'dayGridMonth': title = 'Visualizar por mês'; break;
+                    case 'timeGridWeek': title = 'Visualizar por semana'; break;
+                    case 'timeGridDay': title = 'Visualizar por dia'; break;
+                    case 'listWeek': title = 'Visualizar por lista'; break;
+                }
+                botao.setAttribute('title', title);
+            });
+        });
+
+        // Tooltips para eventos no popover “mais +X”
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('.fc-more-link')) {
+                setTimeout(() => {
+                    document.querySelectorAll('.fc-popover .fc-event').forEach(function(el) {
+                        if (el._tippy) {
+                            el._tippy.destroy();
+                        }
+                        const descricao = el.getAttribute('data-description') || el.innerText || 'Sem descrição';
+                        tippy(el, {
+                            content: descricao,
+                            placement: 'top',
+                            animation: 'scale',
+                            arrow: true,
+                            delay: [100, 100],
+                            theme: 'light-border',
+                        });
+                    });
+                }, 200);
+            }
+        });
     });
 </script>
 {% endblock %}
