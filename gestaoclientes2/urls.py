@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from agendamentos import urls as agendamentos_urls
 from clientes import urls as clientes_urls
+from faturamentos import urls as faturamentos_urls
 from home import urls as home_urls
 from swagger import urls as swagger_urls
 from medicos import urls as medicos_urls
@@ -34,6 +35,7 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')), #exibir "Log in" tela rest
     path('agendamentos/', include(agendamentos_urls)),
     path('clientes/', include(clientes_urls)),
+    path('faturamentos/', include(faturamentos_urls)),
     path('medicos/', include(medicos_urls)),
     path('api/agendamentos', include(agendamentos_urls_rest)),
     path('api/clientes', include(clientes_urls_rest)),

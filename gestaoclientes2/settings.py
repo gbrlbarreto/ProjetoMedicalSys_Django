@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'clientes', #registrar aplicação em migrations
     'home', #registrar aplicação em migrations
     'agendamentos', #registrar aplicação em migrations
+    'faturamentos', #registrar faturamentos em migrations
     'medicos', #registrar aplicação em migrations
     'rest_framework', #registro do django resto_framework
     'swagger',

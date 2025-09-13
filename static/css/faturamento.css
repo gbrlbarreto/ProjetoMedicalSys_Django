@@ -1,0 +1,11 @@
+.btn-faturamento-home {
+    background-color: transparent;
+    border-color: #b69a4f;
+    color: #b69a4f;
+}
+
+.btn-faturamento-home:hover {
+    background-color: #b69a4f;
+    border-color: #b69a4f;
+    color: white;
+}
