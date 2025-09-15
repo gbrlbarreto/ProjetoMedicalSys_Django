@@ -120,6 +120,7 @@ def exportar_pdf(request):
     data_final = request.GET.get('data_final')
 
     hoje = date.today()
+    inicio = fim = hoje
 
     if filtro == 'dia':
         inicio = fim = hoje
@@ -162,7 +163,7 @@ def exportar_pdf(request):
     html = template.render(context)
 
     response = HttpResponse(content_type='application/pdf')
-    response['Content-Disposition'] = 'attachment; filename="faturamento.pdf"'
+    response['Content-Disposition'] = f'attachment; filename="faturamento_{inicio}_{fim}.pdf"'
 
     pisa_status = pisa.CreatePDF(html, dest=response)
 
