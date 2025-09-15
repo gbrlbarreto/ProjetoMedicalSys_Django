@@ -24,6 +24,12 @@
 
     <!-- Botões de ação -->
     <div class="agendamento-actions text-center mt-4 mb-3">
+        <a href="{% url 'exportar_pdf' %}?filtro={{ filtro }}&data_inicial={{ data_inicial }}&data_final={{ data_final }}" class="btn btn-warning btn-sm text-dark">
+            <i class="bi bi-file-earmark-pdf"></i> Exportar PDF
+        </a>
+        <a href="{% url 'exportar_csv' %}?filtro={{ filtro }}&data_inicial={{ data_inicial }}&data_final={{ data_final }}" class="btn btn-success btn-sm">
+            <i class="bi bi-file-earmark-spreadsheet"></i> Exportar CSV
+        </a>
         <a href="{% url 'home' %}" class="btn btn-secondary btn-sm">
             <i class="bi bi-arrow-left-circle"></i> Voltar
         </a>
