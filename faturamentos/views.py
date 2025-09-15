@@ -1,3 +1,5 @@
+import os
+from django.conf import settings
 from django.contrib import messages
 from django.db.models import Sum
 from datetime import date, datetime, timedelta
@@ -140,11 +142,19 @@ def exportar_pdf(request):
 
     total = agendamentos.aggregate(Sum('valor_pago'))['valor_pago__sum'] or 0
 
+    logo_path = os.path.join(settings.BASE_DIR, 'static', 'img', 'medical_logo.png')
+    if not os.path.exists(logo_path):
+        return HttpResponse("Logo não encontrada.", status=500)
+
+    # Converter para caminho de URL local acessível ao pisa
+    logo_url = 'file:///' + logo_path.replace('\\', '/')
+
     context = {
         'agendamentos': agendamentos,
         'inicio': inicio.strftime('%d/%m/%Y'),
         'fim': fim.strftime('%d/%m/%Y'),
-        'total': total
+        'total': total,
+        'logo_url': logo_url
     }
 
     template_path = 'pdf_template.html'
