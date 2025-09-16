@@ -1,9 +1,23 @@
 from django import forms
 from django.forms import ModelForm
 from .models import Agendamento
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
+
+# Campo customizado para mostrar apenas o first_name
+class MedicoModelChoiceField(forms.ModelChoiceField):
+    def label_from_instance(self, obj):
+        nome = f"{obj.first_name} {obj.last_name}".strip()
+        return f"Dr(a). {nome}" if nome else obj.username
 
 #Classe do formulário de Person
 class AgendamentoForm(ModelForm):
+    medico = MedicoModelChoiceField(
+        queryset=User.objects.all(),
+        widget=forms.Select(attrs={'class': 'form-select'})
+    )
+
     class Meta:
         model = Agendamento
         fields = ['data', 'hora', 'descricao', 'status', 'medico', 'paciente', 'valor_pago']
@@ -13,7 +27,7 @@ class AgendamentoForm(ModelForm):
             'descricao': forms.Textarea(attrs={'class': 'form-control', 'rows': 3}),
             'status': forms.Select(attrs={'class': 'form-select'}),
             'valor_pago': forms.NumberInput(attrs={'class': 'form-control', 'min': '0'}),
-            'medico': forms.Select(attrs={'class': 'form-select'}),
+            #'medico': forms.Select(attrs={'class': 'form-select'}),
             'paciente': forms.Select(attrs={'class': 'form-select'}),
         }
         
