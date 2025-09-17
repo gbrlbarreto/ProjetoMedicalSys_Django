@@ -2,6 +2,7 @@ from django import forms
 from django.forms import ModelForm
 from .models import Agendamento
 from django.contrib.auth import get_user_model
+from clientes.models import Person
 
 User = get_user_model()
 
@@ -18,6 +19,11 @@ class AgendamentoForm(ModelForm):
         widget=forms.Select(attrs={'class': 'form-select'})
     )
 
+    paciente = forms.ModelChoiceField(
+        queryset=Person.objects.order_by('nome'),
+        widget=forms.Select(attrs={'class': 'form-select'})
+    )
+
     class Meta:
         model = Agendamento
         fields = ['data', 'hora', 'descricao', 'status', 'medico', 'paciente', 'valor_pago']
@@ -28,6 +34,6 @@ class AgendamentoForm(ModelForm):
             'status': forms.Select(attrs={'class': 'form-select'}),
             'valor_pago': forms.NumberInput(attrs={'class': 'form-control', 'min': '0'}),
             #'medico': forms.Select(attrs={'class': 'form-select'}),
-            'paciente': forms.Select(attrs={'class': 'form-select'}),
+            #'paciente': forms.Select(attrs={'class': 'form-select'}),
         }
         
