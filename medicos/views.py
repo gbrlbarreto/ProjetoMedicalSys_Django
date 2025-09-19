@@ -1,32 +1,33 @@
-from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
+from .forms import MedicoForm
 from .models import Medico
 
 def cadastro(request):
-    if request.method == "GET":
-        return render(request, 'cadastro.html')
+    if request.method == "POST":
+        form = MedicoForm(request.POST)
+        if form.is_valid():
+            # Cria o usuário
+            user = User.objects.create_user(
+                username=form.cleaned_data['username'],
+                email=form.cleaned_data['email'],
+                password=form.cleaned_data['senha'],
+                first_name=form.cleaned_data['first_name'],
+                last_name=form.cleaned_data['last_name']
+            )
+            # Cria o médico associado
+            Medico.objects.create(
+                user=user,
+                cpf=form.cleaned_data['cpf'],
+                crm=form.cleaned_data['crm'],
+                phone=form.cleaned_data['phone'],
+            )
+            return redirect('cadastrado')
+        else:
+            return render(request, 'cadastro.html', {'form': form})
     else:
-        nome = request.POST.get('first_name')
-        sobrenome = request.POST.get('last_name')
-        username = request.POST.get('username')
-        email = request.POST.get('email')
-        senha = request.POST.get('senha')
-
-        user = User.objects.filter(username=username).first()
-
-        if user:
-            return redirect(erro_cadastro)
-        
-        user = User.objects.create_user(username=username, email=email, password=senha)
-        user.first_name = nome
-        user.last_name = sobrenome
-        user.save()
-        return redirect(cadastrado)
-     #   return HttpResponse('Usuário cadastrado com sucesso')
+        form = MedicoForm()
+        return render(request, 'cadastro.html', {'form': form})
 
 def cadastrado(request):
-        return render(request, 'cadastrado_com_sucesso.html')
-
-def erro_cadastro(request):
-        return render(request, 'erro_cadastro.html')
+    return render(request, 'cadastrado_com_sucesso.html')
